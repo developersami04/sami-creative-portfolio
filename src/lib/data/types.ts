@@ -13,3 +13,10 @@ export type TimelineEvent = {
   description: string;
   tags?: string[];
 };
+
+export type Hobby = {
+  id: number;
+  title: string;
+  description: string;
+  imageId: string;
+};

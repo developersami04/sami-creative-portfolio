@@ -35,6 +35,30 @@
       "description": "A long, winding road disappearing into mountains.",
       "imageUrl": "https://picsum.photos/seed/301/1200/600",
       "imageHint": "winding road"
+    },
+    {
+      "id": "hobbies-hero",
+      "description": "A person hiking on a mountain trail at sunset.",
+      "imageUrl": "https://picsum.photos/seed/401/1200/600",
+      "imageHint": "hiking sunset"
+    },
+    {
+      "id": "hobby-hiking",
+      "description": "A mountain range with a clear blue sky.",
+      "imageUrl": "https://picsum.photos/seed/402/600/400",
+      "imageHint": "mountain range"
+    },
+    {
+      "id": "hobby-photography",
+      "description": "A vintage camera on a wooden table.",
+      "imageUrl": "https://picsum.photos/seed/403/600/400",
+      "imageHint": "vintage camera"
+    },
+    {
+      "id": "hobby-cooking",
+      "description": "Fresh vegetables and spices on a kitchen counter.",
+      "imageUrl": "https://picsum.photos/seed/404/600/400",
+      "imageHint": "fresh vegetables"
     }
   ]
 }

@@ -9,6 +9,7 @@ import { CodeXml } from "lucide-react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/journey", label: "Journey" },
+  { href: "/hobbies", label: "Hobbies" },
   { href: "/studio", label: "Studio" },
 ];
 
