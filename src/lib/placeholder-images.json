@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Abstract geometric shapes in vibrant colors.",
+      "imageUrl": "https://picsum.photos/seed/101/600/400",
+      "imageHint": "abstract geometric"
+    },
+    {
+      "id": "project-2",
+      "description": "A sleek, modern desk setup with a laptop.",
+      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageHint": "desk setup"
+    },
+    {
+      "id": "project-3",
+      "description": "Close-up of code on a dark screen.",
+      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "project-4",
+      "description": "A person sketching ideas in a notebook.",
+      "imageUrl": "https://picsum.photos/seed/104/600/400",
+      "imageHint": "sketching ideas"
+    },
+    {
+      "id": "studio-hero",
+      "description": "A creative studio space with art supplies.",
+      "imageUrl": "https://picsum.photos/seed/201/1200/800",
+      "imageHint": "creative studio"
+    },
+    {
+      "id": "journey-hero",
+      "description": "A long, winding road disappearing into mountains.",
+      "imageUrl": "https://picsum.photos/seed/301/1200/600",
+      "imageHint": "winding road"
+    }
+  ]
 }

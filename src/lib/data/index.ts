@@ -1,0 +1,4 @@
+export * from './home/about';
+export * from './home/work';
+export * from './journey/timeline';
+export * from './studio/info';
