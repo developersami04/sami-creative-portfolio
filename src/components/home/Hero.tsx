@@ -8,12 +8,12 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 export function Hero() {
   const heroImage = PlaceHolderImages.find((img) => img.id === "profile-picture");
   return (
-    <section className="relative flex h-[80vh] min-h-[500px] items-center justify-center bg-background text-center md:text-left overflow-hidden">
+    <section className="relative flex h-auto min-h-[500px] items-center justify-center bg-background py-20 text-center md:h-[80vh] md:py-0 md:text-left overflow-hidden">
       <div className="absolute inset-0 z-0 animated-aurora" />
       <Container className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-        <div>
+        <div className="md:order-1">
           <h1 className="text-5xl font-black tracking-tighter text-primary md:text-7xl lg:text-8xl">
-            Creative Developer &<br /> Digital Artisan
+            Developer<br /> Sami
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80 md:mx-0 md:text-xl">
             I build beautiful, functional, and user-centric digital experiences. Explore my work and journey.
@@ -32,7 +32,7 @@ export function Hero() {
             </Button>
           </div>
         </div>
-        <div className="relative hidden aspect-square h-80 justify-self-center md:h-96 md:flex lg:h-[28rem]">
+        <div className="relative flex aspect-square h-64 justify-self-center md:order-2 md:h-96 lg:h-[28rem]">
           {heroImage && (
               <Image
                   src={heroImage.imageUrl}

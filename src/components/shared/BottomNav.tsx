@@ -26,7 +26,6 @@ const navLinks = [
     { href: "/projects", label: "Projects", icon: Briefcase },
     { href: "/hobbies", label: "Hobbies", icon: Heart },
     { href: "/collaborators", label: "Collaborators", icon: Users },
-    { href: "#profiles", label: "Profiles", icon: User },
     { href: "/studio", label: "Studio", icon: Sparkles },
 ];
 
