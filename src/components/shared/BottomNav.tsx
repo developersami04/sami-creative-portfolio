@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -61,17 +60,12 @@ export function BottomNav() {
   if (!isMounted) {
     return null; // Don't render on the server
   }
-
-  // The new nav is mobile only, so we hide it on desktop.
-  if (!isMobile) {
-    return null;
-  }
   
   const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
 
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:hidden">
+      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
           <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
             {navLinks.map((link) => (
               <Tooltip key={link.href}>
