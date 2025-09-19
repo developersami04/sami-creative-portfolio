@@ -89,6 +89,12 @@
       "description": "A person looking thoughtfully into the distance.",
       "imageUrl": "https://picsum.photos/seed/604/400/400",
       "imageHint": "thoughtful person"
+    },
+    {
+      "id": "profile-picture",
+      "description": "A person's profile picture for the hero section.",
+      "imageUrl": "https://picsum.photos/seed/701/500/500",
+      "imageHint": "profile picture"
     }
   ]
 }
