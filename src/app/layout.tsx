@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
+import { BottomNav } from '@/components/shared/BottomNav';
 
 export const metadata: Metadata = {
   title: 'PortfolioFlow | A Creative Portfolio',
@@ -23,8 +24,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <Header />
-        <main>{children}</main>
+        <main className="pb-24 md:pb-0">{children}</main>
         <Footer />
+        <BottomNav />
         <Toaster />
       </body>
     </html>
