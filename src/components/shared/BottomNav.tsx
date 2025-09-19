@@ -46,14 +46,14 @@ export function BottomNav() {
                   size="icon"
                   className={cn(
                     "h-12 w-12 rounded-full",
-                    (pathname === link.href || (link.href.includes('#') && pathname + link.href.substring(link.href.indexOf('#'))) === link.href)) && "bg-accent text-accent-foreground"
+                    (pathname === link.href || (link.href.includes('#') && pathname + link.href.substring(link.href.indexOf('#'))) === link.href)) ? "bg-accent text-accent-foreground" : ""
                   )}
                 >
                   <Link href={link.href}>
                     <link.icon
                       className={cn(
                         "h-5 w-5 transition-transform duration-300",
-                        (pathname === link.href || (link.href.includes('#') && pathname + link.href.substring(link.href.indexOf('#'))) === link.href)) && "scale-125"
+                        (pathname === link.href || (link.href.includes('#') && pathname + link.href.substring(link.href.indexOf('#'))) === link.href)) ? "scale-125" : ""
                       )}
                     />
                     <span className="sr-only">{link.label}</span>
