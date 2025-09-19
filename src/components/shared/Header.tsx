@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Container } from "./Container";
 import { cn } from "@/lib/utils";
 import { CodeXml } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -25,20 +26,23 @@ export function Header() {
           <CodeXml className="h-7 w-7 text-accent" />
           <span className="text-xl font-headline font-bold">PortfolioFlow</span>
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-accent",
-                pathname === link.href ? "text-accent" : "text-foreground/70"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-4">
+          <nav className="hidden items-center gap-6 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-accent",
+                  pathname === link.href ? "text-accent" : "text-foreground/70"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </div>
       </Container>
     </header>
   );
