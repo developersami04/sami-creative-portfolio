@@ -114,4 +114,21 @@
     transform: translateX(-50%);
     z-index: 10;
   }
+
+  .animated-aurora {
+    animation: aurora 20s linear infinite;
+    background:
+     radial-gradient(ellipse at 50% 50%, hsl(var(--accent) / 0.2), transparent 70%),
+     radial-gradient(ellipse at 50% 50%, hsl(var(--primary) / 0.2), transparent 70%);
+    background-size: 400% 400%;
+  }
+}
+
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
 }

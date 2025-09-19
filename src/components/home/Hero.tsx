@@ -5,8 +5,9 @@ import { ArrowDown } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex h-[80vh] min-h-[500px] items-center justify-center bg-background text-center md:min-h-[600px]">
-      <Container>
+    <section className="relative flex h-[80vh] min-h-[500px] items-center justify-center bg-background text-center overflow-hidden">
+      <div className="absolute inset-0 z-0 animated-aurora" />
+      <Container className="relative z-10">
         <h1 className="text-5xl font-black tracking-tighter text-primary md:text-7xl lg:text-8xl">
           Creative Developer &<br /> Digital Artisan
         </h1>
