@@ -91,10 +91,16 @@
       "imageHint": "thoughtful person"
     },
     {
-      "id": "profile-picture",
+      "id": "profile-picture-hero",
       "description": "A person's profile picture for the hero section.",
-      "imageUrl": "https://picsum.photos/seed/701/500/500",
+      "imageUrl": "https://picsum.photos/seed/701/400/500",
       "imageHint": "profile picture"
+    },
+    {
+      "id": "hero-background",
+      "description": "Abstract pastel colored background",
+      "imageUrl": "https://picsum.photos/seed/801/1920/1080",
+      "imageHint": "abstract background"
     }
   ]
 }
