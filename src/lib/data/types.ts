@@ -28,3 +28,10 @@ export type Collaborator = {
   testimonial: string;
   imageId: string;
 };
+
+export type Profile = {
+  id: number;
+  name: string;
+  url: string;
+  icon: "github" | "linkedin" | "twitter";
+};

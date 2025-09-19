@@ -15,6 +15,7 @@ import {
   Heart,
   Users,
   Sparkles,
+  User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,7 @@ const navLinks = [
     { href: "/projects", label: "Projects", icon: Briefcase },
     { href: "/hobbies", label: "Hobbies", icon: Heart },
     { href: "/collaborators", label: "Collaborators", icon: Users },
+    { href: "#profiles", label: "Profiles", icon: User },
     { href: "/studio", label: "Studio", icon: Sparkles },
 ];
 
@@ -33,38 +35,38 @@ export function BottomNav() {
 
   return (
     <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
-        <TooltipProvider>
-            <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
-            {navLinks.map((link) => (
-                <Tooltip key={link.href}>
-                <TooltipTrigger asChild>
-                    <Button
-                    asChild
-                    variant="ghost"
-                    size="icon"
-                    className={cn(
-                        "h-12 w-12 rounded-full",
-                        pathname === link.href ? "bg-accent text-accent-foreground" : ""
-                    )}
-                    >
-                    <Link href={link.href}>
-                        <link.icon
-                        className={cn(
-                            "h-5 w-5 transition-transform duration-300",
-                            pathname === link.href ? "scale-125" : ""
-                        )}
-                        />
-                        <span className="sr-only">{link.label}</span>
-                    </Link>
-                    </Button>
-                </TooltipTrigger>
-                <TooltipContent side="top">
-                    <p>{link.label}</p>
-                </TooltipContent>
-                </Tooltip>
-            ))}
-            </div>
-        </TooltipProvider>
+      <TooltipProvider>
+        <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
+          {navLinks.map((link) => (
+            <Tooltip key={link.href}>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className={cn(
+                    "h-12 w-12 rounded-full",
+                    pathname === link.href && link.href !== "#profiles" ? "bg-accent text-accent-foreground" : ""
+                  )}
+                >
+                  <Link href={link.href}>
+                    <link.icon
+                      className={cn(
+                        "h-5 w-5 transition-transform duration-300",
+                        pathname === link.href && link.href !== "#profiles" ? "scale-125" : ""
+                      )}
+                    />
+                    <span className="sr-only">{link.label}</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>{link.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
+        </div>
+      </TooltipProvider>
     </div>
   );
 }
