@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { Container } from "./Container";
 import { cn } from "@/lib/utils";
 import { CodeXml } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -41,7 +40,6 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <ThemeToggle />
         </div>
       </Container>
     </header>
