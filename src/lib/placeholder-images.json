@@ -59,6 +59,12 @@
       "description": "Fresh vegetables and spices on a kitchen counter.",
       "imageUrl": "https://picsum.photos/seed/404/600/400",
       "imageHint": "fresh vegetables"
+    },
+    {
+      "id": "projects-hero",
+      "description": "A well-organized workspace with multiple screens showing code.",
+      "imageUrl": "https://picsum.photos/seed/501/1200/600",
+      "imageHint": "coding workspace"
     }
   ]
 }
