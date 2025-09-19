@@ -6,7 +6,7 @@ import { Container } from "./Container";
 import { cn } from "@/lib/utils";
 import { CodeXml, Menu } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
@@ -55,6 +55,7 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
+                <SheetTitle className="sr-only">Menu</SheetTitle>
                 <div className="flex flex-col gap-6 pt-12">
                   <Link href="/" className="flex items-center gap-2 font-bold text-primary" onClick={() => setIsOpen(false)}>
                     <CodeXml className="h-7 w-7 text-accent" />
