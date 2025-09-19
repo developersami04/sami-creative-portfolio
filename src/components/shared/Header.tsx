@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/hobbies", label: "Hobbies" },
   { href: "/collaborators", label: "Collaborators" },
   { href: "/studio", label: "Studio" },
+  { href: "/#profiles", label: "Profiles" },
 ];
 
 export function Header() {
@@ -38,7 +39,7 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-accent",
-                  pathname === link.href ? "text-accent" : "text-foreground/70"
+                  (pathname === link.href || pathname + '#' + (link.href.split('#')[1] || '')) === link.href) ? "text-accent" : "text-foreground/70"
                 )}
               >
                 {link.label}
@@ -69,7 +70,7 @@ export function Header() {
                         onClick={() => setIsOpen(false)}
                         className={cn(
                           "text-lg font-medium transition-colors hover:text-accent",
-                          pathname === link.href ? "text-accent" : "text-foreground/70"
+                          (pathname === link.href || pathname + '#' + (link.href.split('#')[1] || '')) === link.href) ? "text-accent" : "text-foreground/70"
                         )}
                       >
                         {link.label}

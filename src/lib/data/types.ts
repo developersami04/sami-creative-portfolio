@@ -16,7 +16,7 @@ export type TimelineEvent = {
 
 export type Hobby = {
   id: number;
-  title: string;
+  title:string;
   description: string;
   imageId: string;
 };
@@ -27,4 +27,11 @@ export type Collaborator = {
   title: string;
   testimonial: string;
   imageId: string;
+};
+
+export type Profile = {
+  id: number;
+  name: string;
+  url: string;
+  icon: "github" | "linkedin" | "twitter";
 };

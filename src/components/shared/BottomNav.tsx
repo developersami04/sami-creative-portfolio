@@ -36,6 +36,7 @@ const desktopNavLinks = [
     { href: "/hobbies", label: "Hobbies", icon: Heart },
     { href: "/collaborators", label: "Collaborators", icon: Users },
     { href: "/studio", label: "Studio", icon: Sparkles },
+    { href: "/#profiles", label: "Profiles", icon: User },
 ];
 
 const mobileNavLinks = [
@@ -45,6 +46,7 @@ const mobileNavLinks = [
     { href: "/hobbies", label: "Hobbies", icon: Heart },
     { href: "/collaborators", label: "Collaborators", icon: Users },
     { href: "/studio", label: "Studio", icon: Sparkles },
+    { href: "/#profiles", label: "Profiles", icon: User },
 ];
 
 export function BottomNav() {
@@ -61,7 +63,7 @@ export function BottomNav() {
     return null; // Don't render on the server
   }
   
-  const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
+  const navLinks = desktopNavLinks;
 
   return (
     <TooltipProvider>
@@ -76,14 +78,14 @@ export function BottomNav() {
                     size="icon"
                     className={cn(
                       "h-12 w-12 rounded-full",
-                      pathname === link.href && "bg-accent text-accent-foreground"
+                      (pathname === link.href || pathname + '#' + (link.href.split('#')[1] || '')) === link.href) && "bg-accent text-accent-foreground"
                     )}
                   >
                     <Link href={link.href}>
                       <link.icon
                         className={cn(
                           "h-5 w-5 transition-transform duration-300",
-                          pathname === link.href && "scale-125"
+                          (pathname === link.href || pathname + '#' + (link.href.split('#')[1] || '')) === link.href) && "scale-125"
                         )}
                       />
                       <span className="sr-only">{link.label}</span>
