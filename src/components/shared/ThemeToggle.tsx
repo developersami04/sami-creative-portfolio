@@ -14,20 +14,41 @@ import {
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  const themes = ["light", "dark", "colorful"];
 
   const handleToggle = () => {
-    const currentIndex = themes.indexOf(theme === 'system' ? 'light' : theme || 'light');
-    const nextIndex = (currentIndex + 1) % themes.length;
-    setTheme(themes[nextIndex]);
+    if (theme === "light") {
+      setTheme("dark")
+    } else if (theme === "dark") {
+      setTheme("colorful")
+    } else {
+      setTheme("light")
+    }
   };
 
   return (
-    <Button variant="ghost" size="icon" onClick={handleToggle}>
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-       {/* The Palette icon will not be directly visible in the button, but you can add it to the dropdown or cycle through it */}
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Palette className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all colorful:rotate-0 colorful:scale-100" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setTheme("light")}>
+          <Sun className="mr-2 h-4 w-4" />
+          <span>Light</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("dark")}>
+          <Moon className="mr-2 h-4 w-4" />
+          <span>Dark</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("colorful")}>
+          <Palette className="mr-2 h-4 w-4" />
+          <span>Colorful</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
