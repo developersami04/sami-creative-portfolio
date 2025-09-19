@@ -65,6 +65,30 @@
       "description": "A well-organized workspace with multiple screens showing code.",
       "imageUrl": "https://picsum.photos/seed/501/1200/600",
       "imageHint": "coding workspace"
+    },
+    {
+      "id": "collaborators-hero",
+      "description": "A diverse group of people in a workshop.",
+      "imageUrl": "https://picsum.photos/seed/601/1200/600",
+      "imageHint": "people workshop"
+    },
+    {
+      "id": "collaborator-1",
+      "description": "A professional-looking person smiling.",
+      "imageUrl": "https://picsum.photos/seed/602/400/400",
+      "imageHint": "professional person"
+    },
+    {
+      "id": "collaborator-2",
+      "description": "A person in a creative office environment.",
+      "imageUrl": "https://picsum.photos/seed/603/400/400",
+      "imageHint": "creative office"
+    },
+    {
+      "id": "collaborator-3",
+      "description": "A person looking thoughtfully into the distance.",
+      "imageUrl": "https://picsum.photos/seed/604/400/400",
+      "imageHint": "thoughtful person"
     }
   ]
 }

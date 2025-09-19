@@ -20,3 +20,11 @@ export type Hobby = {
   description: string;
   imageId: string;
 };
+
+export type Collaborator = {
+  id: number;
+  name: string;
+  title: string;
+  testimonial: string;
+  imageId: string;
+};
