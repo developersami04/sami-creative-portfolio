@@ -46,7 +46,7 @@ export function Hero() {
             <p className="text-lg font-medium uppercase tracking-widest text-accent">
               {aboutData.title}
             </p>
-            <h1 className="mt-4 text-5xl font-black md:text-6xl lg:text-7xl">
+            <h1 className="glow-name mt-4 font-black">
               {aboutData.name}
             </h1>
             <p className="mt-6 text-lg text-foreground/80">

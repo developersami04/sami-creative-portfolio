@@ -89,6 +89,15 @@
   }
 }
 
+@layer components {
+  .glow-name {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.3);
+  }
+}
+
 @layer utilities {
   .animated-aurora {
     animation: aurora 20s linear infinite;
