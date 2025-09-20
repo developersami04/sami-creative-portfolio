@@ -3,6 +3,13 @@ import type { Collaborator } from "@/lib/types";
 export const collaboratorsPageData = {
     title: "I Have Worked With ...",
     description: "A diverse team of passionate professionals with unique skills driving innovation and excellence in every project.",
+    heroImageIds: [
+        'collaborator-1',
+        'collaborator-2',
+        'collaborator-3',
+        'collaborator-1',
+        'collaborator-2',
+    ],
     team: {
         title: "Team",
         description: "A diverse group of passionate professionals, each bringing unique skills and experiences to drive innovation and excellence in every project we undertake."

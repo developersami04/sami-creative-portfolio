@@ -3,6 +3,7 @@ import type { Hobby } from "@/lib/types";
 export const hobbiesPageData = {
     title: "My Hobbies",
     description: "When I'm not coding, I enjoy a variety of activities that keep me creative and balanced.",
+    heroImageId: "hobbies-hero",
     list: {
         title: "What I Do For Fun",
         description: "A glimpse into my passions outside of the digital world."

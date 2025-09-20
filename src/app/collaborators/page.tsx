@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
-import { collaboratorsData, collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
+import { collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -36,18 +36,10 @@ const CollaboratorImage = ({ id, className }: { id: string; className?: string; 
 
 
 const CollaboratorsPage = () => {
-  // Ensure we have enough data, repeating if necessary
-  const teamImageIds = [
-    collaboratorsData[0]?.imageId || 'collaborator-1',
-    collaboratorsData[1]?.imageId || 'collaborator-2',
-    collaboratorsData[2]?.imageId || 'collaborator-3',
-    collaboratorsData[3]?.imageId || 'collaborator-1',
-    collaboratorsData[0]?.imageId || 'collaborator-2',
-  ];
 
   return (
     <div className="bg-background text-foreground">
-      <div className="overflow-hidden py-5">
+      <div className="overflow-hidden pt-8">
         <Container>
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
@@ -59,11 +51,11 @@ const CollaboratorsPage = () => {
           </div>
         </Container>
          <div className="mt-16 -mx-4 flex justify-center gap-x-6 sm:gap-x-8 px-4 sm:px-6 lg:px-8">
-            <CollaboratorImage id={teamImageIds[0]} className="rotate-2" />
-            <CollaboratorImage id={teamImageIds[1]} className="relative top-11 -rotate-2" />
-            <CollaboratorImage id={teamImageIds[2]} className="relative top-5 scale-110 z-10" />
-            <CollaboratorImage id={teamImageIds[3]} className="relative top-11 rotate-2" />
-            <CollaboratorImage id={teamImageIds[4]} className="-rotate-2" />
+            <CollaboratorImage id={collaboratorsPageData.heroImageIds[0]} className="rotate-2" />
+            <CollaboratorImage id={collaboratorsPageData.heroImageIds[1]} className="relative top-11 -rotate-2" />
+            <CollaboratorImage id={collaboratorsPageData.heroImageIds[2]} className="relative top-5 scale-110 z-10" />
+            <CollaboratorImage id={collaboratorsPageData.heroImageIds[3]} className="relative top-11 rotate-2" />
+            <CollaboratorImage id={collaboratorsPageData.heroImageIds[4]} className="-rotate-2" />
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { studioInfo } from "@/lib/data/studio/studio";
 
 export function StudioHero() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === "studio-hero");
+  const heroImage = PlaceHolderImages.find((img) => img.id === studioInfo.heroImageId);
   return (
     <div className="relative overflow-hidden bg-primary">
       <Container className="relative z-10 grid grid-cols-1 items-center gap-12 py-20 md:grid-cols-2 md:py-32">

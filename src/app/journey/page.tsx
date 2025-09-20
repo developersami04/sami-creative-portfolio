@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 const JourneyPage = () => {
-  const heroImage = PlaceHolderImages.find((img) => img.id === "journey-hero");
+  const heroImage = PlaceHolderImages.find((img) => img.id === journeyPageData.heroImageId);
 
   return (
     <>

@@ -2,7 +2,8 @@ import type { TimelineEvent } from "@/lib/types";
 
 export const journeyPageData = {
   title: "My Journey",
-  description: "A chronicle of my career, growth, and the key milestones that have shaped my professional life."
+  description: "A chronicle of my career, growth, and the key milestones that have shaped my professional life.",
+  heroImageId: "journey-hero"
 };
 
 export const timelineData: TimelineEvent[] = [

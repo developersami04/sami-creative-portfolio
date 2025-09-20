@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 const ProjectsPage = () => {
-  const heroImage = PlaceHolderImages.find((img) => img.id === "projects-hero");
+  const heroImage = PlaceHolderImages.find((img) => img.id === projectsPageData.heroImageId);
 
   return (
     <>

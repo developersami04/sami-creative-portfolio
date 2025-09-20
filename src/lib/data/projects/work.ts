@@ -2,7 +2,8 @@ import type { Project } from "@/lib/types";
 
 export const projectsPageData = {
   title: "My Projects",
-  description: "Here is a collection of my work, demonstrating my skills in design and development."
+  description: "Here is a collection of my work, demonstrating my skills in design and development.",
+  heroImageId: "projects-hero"
 };
 
 export const workSectionData = {

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 
 export function Hero() {
-  const profileImage = PlaceHolderImages.find((img) => img.id === "profile-picture");
+  const profileImage = PlaceHolderImages.find((img) => img.id === aboutData.profilePictureId);
 
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-32">
