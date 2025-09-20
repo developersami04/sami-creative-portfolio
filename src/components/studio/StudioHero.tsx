@@ -5,6 +5,7 @@ import { studioInfo } from "@/lib/data/studio/studio";
 export function StudioHero() {
   return (
     <div className="relative overflow-hidden bg-primary">
+      <div className="animated-aurora" />
       <Container className="relative z-10 grid grid-cols-1 items-center gap-12 py-20 md:grid-cols-2 md:py-32">
         <div className="text-primary-foreground">
           <h1 className="text-4xl font-black md:text-6xl">

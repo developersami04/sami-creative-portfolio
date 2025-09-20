@@ -35,8 +35,9 @@ const CollaboratorsPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <div className="overflow-hidden pt-2">
-        <Container>
+      <div className="relative overflow-hidden pt-2">
+        <div className="animated-aurora" />
+        <Container className="relative z-10">
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
               {collaboratorsPageData.title}

@@ -23,6 +23,7 @@ const SkillsPage = () => {
           />
         )}
         <div className="absolute inset-0 bg-primary/70" />
+        <div className="animated-aurora" />
         <Container className="relative z-10 flex h-full flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-black text-primary-foreground md:text-6xl">{skillsPageData.title}</h1>
           <p className="mt-4 max-w-2xl text-lg text-primary-foreground/80">

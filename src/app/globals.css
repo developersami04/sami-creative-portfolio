@@ -110,6 +110,8 @@
 
 @layer utilities {
   .animated-aurora {
+    position: absolute;
+    inset: 0;
     animation: aurora 20s linear infinite;
     background:
      radial-gradient(ellipse at 50% 50%, hsl(var(--accent) / 0.2), transparent 70%),
