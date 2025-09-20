@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -23,7 +24,7 @@ export function CollaboratorsList() {
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {collaboratorsPageData.team.title}
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-300">
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-foreground/80">
           {collaboratorsPageData.team.description}
         </p>
       </div>
@@ -42,19 +43,19 @@ export function CollaboratorsList() {
                   />
                 </div>
               )}
-              <h3 className="mt-6 text-xl font-semibold leading-7 tracking-tight text-white">{collaborator.name}</h3>
-              <p className="text-base leading-6 text-cyan-400">{collaborator.title}</p>
-              <p className="mt-2 text-sm leading-6 text-gray-400">{collaborator.summary}</p>
+              <h3 className="mt-6 text-xl font-semibold leading-7 tracking-tight text-foreground">{collaborator.name}</h3>
+              <p className="text-base leading-6 text-accent">{collaborator.title}</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{collaborator.summary}</p>
               <div className="mt-4 flex justify-center gap-x-4">
-                <Link href="#" className="text-gray-400 hover:text-white">
+                <Link href="#" className="text-muted-foreground hover:text-foreground">
                   <span className="sr-only">Twitter</span>
                   <Twitter className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="text-gray-400 hover:text-white">
+                <Link href="#" className="text-muted-foreground hover:text-foreground">
                   <span className="sr-only">LinkedIn</span>
                   <Linkedin className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="text-gray-400 hover:text-white">
+                <Link href="#" className="text-muted-foreground hover:text-foreground">
                   <span className="sr-only">GitHub</span>
                   <Github className="h-5 w-5" />
                 </Link>
