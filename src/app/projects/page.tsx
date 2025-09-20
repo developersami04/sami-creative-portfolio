@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
-import { Work } from "@/components/home/Work";
 import { projectsPageData } from "@/lib/data/projects/work";
+import { ProjectList } from "@/components/projects/ProjectList";
 
 export const metadata = {
   title: "My Projects | PortfolioFlow",
@@ -31,7 +31,7 @@ const ProjectsPage = () => {
         </Container>
       </div>
       <Container>
-        <Work />
+        <ProjectList />
       </Container>
     </>
   );
