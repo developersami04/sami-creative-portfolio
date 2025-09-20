@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { workData, workSectionData } from "@/lib/data/projects/work";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Calendar } from "lucide-react";
 
 export function Work() {
   return (
@@ -43,7 +43,11 @@ export function Work() {
               )}
               <CardHeader className="flex-grow">
                 <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{project.timeOfDevelopment}</span>
+                </div>
+                <CardDescription className="pt-2">{project.description}</CardDescription>
               </CardHeader>
               <CardContent className="mt-auto">
                  <div className="flex flex-wrap gap-2">

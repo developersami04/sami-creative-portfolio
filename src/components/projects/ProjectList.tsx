@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight, Calendar, Search } from "lucide-react";
 import { workData, workSectionData } from "@/lib/data/projects/work";
 import {
   Card,
@@ -26,10 +26,11 @@ export function ProjectList() {
     }
     const lowercasedTerm = searchTerm.toLowerCase();
     return workData.filter((project) => {
-      const { title, description, tags } = project;
+      const { title, description, tags, timeOfDevelopment } = project;
       return (
         title.toLowerCase().includes(lowercasedTerm) ||
         description.toLowerCase().includes(lowercasedTerm) ||
+        timeOfDevelopment.toLowerCase().includes(lowercasedTerm) ||
         tags.some((tag) => tag.toLowerCase().includes(lowercasedTerm))
       );
     });
@@ -85,7 +86,11 @@ export function ProjectList() {
                 <CardTitle className="text-2xl font-bold">
                   {project.title}
                 </CardTitle>
-                <CardDescription>{project.description}</CardDescription>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{project.timeOfDevelopment}</span>
+                </div>
+                <CardDescription className="pt-2">{project.description}</CardDescription>
               </CardHeader>
               <CardContent className="mt-auto">
                 <div className="flex flex-wrap gap-2">

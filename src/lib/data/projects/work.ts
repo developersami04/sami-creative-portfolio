@@ -21,6 +21,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/101/600/400",
     imageHint: "abstract geometric",
     link: "#",
+    timeOfDevelopment: "3 Months",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/102/600/400",
     imageHint: "desk setup",
     link: "#",
+    timeOfDevelopment: "6 Months",
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/103/600/400",
     imageHint: "code screen",
     link: "#",
+    timeOfDevelopment: "5 Months",
   },
   {
     id: 4,
@@ -48,6 +51,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/104/600/400",
     imageHint: "sketching ideas",
     link: "#",
+    timeOfDevelopment: "4 Months",
   },
    {
     id: 5,
@@ -57,5 +61,6 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/105/600/400",
     imageHint: "ui components",
     link: "#",
+    timeOfDevelopment: "8 Months",
   },
 ];
