@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { workData } from "@/lib/data";
+import { workData } from "@/lib/data/work";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function Work() {

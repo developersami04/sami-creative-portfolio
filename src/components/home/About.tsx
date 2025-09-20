@@ -1,4 +1,4 @@
-import { aboutData } from "@/lib/data";
+import { aboutData } from "@/lib/data/about";
 
 export function About() {
   return (

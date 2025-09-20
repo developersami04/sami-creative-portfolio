@@ -4,7 +4,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { profilesData } from "@/lib/data";
+import { profilesData } from "@/lib/data/profiles";
 
 const iconMap = {
   github: Github,

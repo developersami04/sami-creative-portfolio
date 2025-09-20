@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { studioInfo } from "@/lib/data";
+import { studioInfo } from "@/lib/data/studio";
 
 export function StudioHero() {
   const heroImage = PlaceHolderImages.find((img) => img.id === "studio-hero");
