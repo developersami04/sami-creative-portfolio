@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from "lucide-react";
 
 export type Project = {
@@ -45,6 +46,7 @@ export type Skill = {
   name: string;
   proficiency: number;
   description: string;
+  type: "Frontend" | "Backend" | "Design" | "Tools";
 };
 
 export type Journey = {
