@@ -89,6 +89,18 @@
       "description": "A person looking thoughtfully into the distance.",
       "imageUrl": "https://picsum.photos/seed/604/400/400",
       "imageHint": "thoughtful person"
+    },
+    {
+      "id": "profile-picture",
+      "description": "A professional headshot of a person.",
+      "imageUrl": "https://picsum.photos/seed/701/500/500",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "hero-bg",
+      "description": "Abstract dark background with blue and purple gradients.",
+      "imageUrl": "https://picsum.photos/seed/702/1920/1080",
+      "imageHint": "abstract background"
     }
   ]
 }
