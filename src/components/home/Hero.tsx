@@ -4,60 +4,56 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { aboutData } from "@/lib/data/home/about";
 import { Container } from "../shared/Container";
 import Link from "next/link";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 export function Hero() {
   const profileImage = PlaceHolderImages.find((img) => img.id === "profile-picture");
-  const heroBgImage = PlaceHolderImages.find((img) => img.id === "hero-bg-2");
 
   return (
-    <section className="relative min-h-[500px] w-full pt-24 pb-12 md:pt-32 md:pb-24 text-primary-foreground overflow-hidden">
-      {heroBgImage && (
-        <Image
-          src={heroBgImage.imageUrl}
-          alt={heroBgImage.description}
-          data-ai-hint={heroBgImage.imageHint}
-          fill
-          className="object-cover"
-          priority
-        />
-      )}
-      <div className="absolute inset-0 bg-black/70" />
-       <div className="absolute inset-0 animated-aurora" />
-
-      <Container className="relative z-10 grid grid-cols-1 items-center gap-12 md:grid-cols-5">
-        <div className="flex flex-col items-center text-center md:col-span-3 md:items-start md:text-left">
-          <p className="text-xl font-medium uppercase tracking-widest text-accent">
-            {aboutData.title}
-          </p>
-          <h1 className="mt-4 text-5xl font-black md:text-7xl lg:text-8xl">
-            {aboutData.name}
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-primary-foreground/80">
-            {aboutData.bio}
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+    <section className="relative overflow-hidden bg-background py-20 sm:py-32">
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          {/* Text Content */}
+          <div className="max-w-xl text-center md:text-left">
+            <p className="text-lg font-medium uppercase tracking-widest text-accent">
+              {aboutData.title}
+            </p>
+            <h1 className="mt-4 text-5xl font-black md:text-6xl lg:text-7xl">
+              {aboutData.name}
+            </h1>
+            <p className="mt-6 text-lg text-foreground/80">
+              {aboutData.bio}
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/projects">View My Work</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground hover:text-background">
-                <Link href="#profiles">Contact Me</Link>
-            </Button>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="#about">
+                  More About Me
+                  <ArrowDown className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
 
-        <div className="relative md:col-span-2 flex justify-center items-center">
+          {/* Image Content */}
+          <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
+            <div className="absolute inset-0 -rotate-6 transform rounded-2xl bg-secondary transition-transform duration-300 hover:rotate-0"></div>
+            <div className="absolute inset-0 rotate-6 transform rounded-2xl bg-accent/30 transition-transform duration-300 hover:rotate-0"></div>
             {profileImage && (
-                <div className="relative w-72 h-72 lg:w-96 lg:h-96">
-                    <Image
-                        src={profileImage.imageUrl}
-                        alt={profileImage.description}
-                        data-ai-hint={profileImage.imageHint}
-                        fill
-                        className="rounded-full object-cover border-4 border-accent shadow-2xl"
-                    />
-                </div>
+              <div className="relative h-full w-full overflow-hidden rounded-2xl border-4 border-background shadow-2xl">
+                <Image
+                  src={profileImage.imageUrl}
+                  alt={profileImage.description}
+                  data-ai-hint={profileImage.imageHint}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             )}
+          </div>
         </div>
       </Container>
     </section>
