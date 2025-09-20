@@ -16,7 +16,7 @@ export function About() {
             ))}
         </div>
         <div className="mt-10">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg">
                 <Link href="mailto:your-email@example.com">
                     Hire Me
                     <Send className="ml-2 h-4 w-4" />

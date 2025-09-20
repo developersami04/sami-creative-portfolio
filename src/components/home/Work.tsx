@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { workData, workSectionData } from "@/lib/data/projects/work";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowUpRight, Calendar, ArrowRight } from "lucide-react";
 
 export function Work() {
   return (
@@ -26,7 +26,7 @@ export function Work() {
       </div>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {workData.map((project) => (
+        {workData.slice(0, 3).map((project) => (
             <Card key={project.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               {project.imageUrl && (
                 <div className="relative aspect-video overflow-hidden">
@@ -68,6 +68,14 @@ export function Work() {
               </CardFooter>
             </Card>
           ))}
+      </div>
+      <div className="mt-12 text-center">
+        <Button asChild size="lg" variant="outline">
+          <Link href="/projects">
+            View All Projects
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </section>
   );
