@@ -5,6 +5,7 @@ import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
 import { BottomNav } from '@/components/shared/BottomNav';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import { PageTransition } from '@/components/shared/PageTransition';
 
 export const metadata: Metadata = {
   title: 'PortfolioFlow | A Creative Portfolio',
@@ -31,7 +32,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="pb-24">{children}</main>
+          <main className="pb-24">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
           <Footer />
           <BottomNav />
           <Toaster />
