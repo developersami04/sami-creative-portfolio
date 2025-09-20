@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { journeyPageData } from "@/lib/data/journey/journey";
+import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
 
 export const metadata = {
   title: "My Journey | PortfolioFlow",
@@ -38,7 +39,7 @@ const JourneyPage = () => {
                 {journeyPageData.timeline.description}
             </p>
         </div>
-        {/* The timeline component has been removed. You can add your new design here. */}
+        <JourneyTimeline />
       </Container>
     </>
   );
