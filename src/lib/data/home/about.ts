@@ -1,6 +1,6 @@
 export const aboutData = {
     sectionTitle: "About Me",
-    name: "Jane Doe",
+    name: "Sami",
     title: "Creative Developer",
     bio: "I am a passionate and creative developer with a knack for building beautiful and intuitive digital experiences. With a strong foundation in modern web technologies, I specialize in bringing ideas to life from concept to deployment.",
     paragraphs: [

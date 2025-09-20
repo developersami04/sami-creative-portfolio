@@ -1,4 +1,7 @@
 import { aboutData } from "@/lib/data/home/about";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Send } from "lucide-react";
 
 export function About() {
   return (
@@ -11,6 +14,14 @@ export function About() {
             {aboutData.paragraphs.map((p, index) => (
                 <p key={index}>{p}</p>
             ))}
+        </div>
+        <div className="mt-10">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                <Link href="mailto:your-email@example.com">
+                    Hire Me
+                    <Send className="ml-2 h-4 w-4" />
+                </Link>
+            </Button>
         </div>
       </div>
     </section>
