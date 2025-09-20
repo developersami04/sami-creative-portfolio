@@ -47,7 +47,7 @@ const CollaboratorsPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <div className="overflow-hidden py-24 sm:py-32">
+      <div className="overflow-hidden pt-16 sm:pt-24 pb-24 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
