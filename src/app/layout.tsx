@@ -34,7 +34,7 @@ export default function RootLayout({
         >
           <ThunderCursor />
           <Header />
-          <main className="pb-24">
+          <main className="relative z-10 pb-24">
             <PageTransition>
               {children}
             </PageTransition>
