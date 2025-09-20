@@ -14,23 +14,23 @@ export const hobbiesPageData = {
 export const hobbiesData: Hobby[] = [
     {
         id: 1,
-        title: "Hiking",
-        description: "Exploring new trails and enjoying the serenity of nature. It's my favorite way to disconnect and recharge.",
+        title: "Explore New Technologies",
+        description: "I'm always diving into new tech stacks, libraries, and frameworks to stay on the cutting edge.",
         imageUrl: "https://picsum.photos/seed/402/600/400",
-        imageHint: "mountain range"
+        imageHint: "glowing circuit board"
     },
     {
         id: 2,
-        title: "Photography",
-        description: "Capturing moments and landscapes. I love finding unique perspectives and telling stories through images.",
+        title: "Watching Animes",
+        description: "I enjoy the intricate storytelling and stunning visuals of anime as a way to unwind.",
         imageUrl: "https://picsum.photos/seed/403/600/400",
-        imageHint: "vintage camera"
+        imageHint: "anime character illustration"
     },
     {
         id: 3,
-        title: "Cooking",
-        description: "Experimenting with new recipes and flavors. I find cooking to be a creative and rewarding process.",
+        title: "Nature Photography & Videography",
+        description: "Capturing the beauty of nature through my camera lens is a passion that gets me outdoors.",
         imageUrl: "https://picsum.photos/seed/404/600/400",
-        imageHint: "fresh vegetables"
+        imageHint: "camera in nature"
     },
 ];
