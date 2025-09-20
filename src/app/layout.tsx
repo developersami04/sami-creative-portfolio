@@ -6,9 +6,10 @@ import { Footer } from '@/components/shared/Footer';
 import { BottomNav } from '@/components/shared/BottomNav';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
 import { PageTransition } from '@/components/shared/PageTransition';
+import { ThunderCursor } from '@/components/shared/ThunderCursor';
 
 export const metadata: Metadata = {
-  title: 'PortfolioFlow | A Creative Portfolio',
+  title: 'Sami | PortfolioFlow | A Creative Portfolio',
   description: 'A personal portfolio showcasing projects, experience, and creative work.',
 };
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ThunderCursor />
           <Header />
           <main className="pb-24">
             <PageTransition>
