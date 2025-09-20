@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { collaboratorsData } from "@/lib/data/collaborators";
+import { collaboratorsData } from "@/lib/data/collaborators/collaborators";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";

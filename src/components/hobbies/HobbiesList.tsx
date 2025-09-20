@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { hobbiesData } from "@/lib/data/hobbies";
+import { hobbiesData } from "@/lib/data/hobbies/hobbies";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function HobbiesList() {

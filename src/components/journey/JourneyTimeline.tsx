@@ -1,4 +1,4 @@
-import { timelineData } from "@/lib/data/timeline";
+import { timelineData } from "@/lib/data/journey/timeline";
 import { Building, CalendarDays } from "lucide-react";
 
 export function JourneyTimeline() {

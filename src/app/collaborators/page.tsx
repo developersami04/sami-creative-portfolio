@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
-import { collaboratorsData } from "@/lib/data/collaborators";
+import { collaboratorsData } from "@/lib/data/collaborators/collaborators";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
