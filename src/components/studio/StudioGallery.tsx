@@ -20,7 +20,7 @@ export function StudioGallery() {
   return (
     <Tabs defaultValue="All" onValueChange={setActiveTab} className="w-full">
       <div className="flex justify-center">
-        <TabsList className="mb-12 grid grid-cols-2 sm:grid-cols-4 w-full max-w-lg">
+        <TabsList className="mb-12 grid w-full max-w-lg grid-cols-4">
           {categories.map((category) => (
             <TabsTrigger key={category} value={category}>
               {category}
