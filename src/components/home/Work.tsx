@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { workData, workSectionData } from "@/lib/data/projects/work";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -27,16 +26,14 @@ export function Work() {
       </div>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {workData.map((project) => {
-          const projectImage = PlaceHolderImages.find((img) => img.id === project.imageId);
-          return (
+        {workData.map((project) => (
             <Card key={project.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              {projectImage && (
+              {project.imageUrl && (
                 <div className="relative aspect-video overflow-hidden">
                   <Image
-                    src={projectImage.imageUrl}
+                    src={project.imageUrl}
                     alt={project.title}
-                    data-ai-hint={projectImage.imageHint}
+                    data-ai-hint={project.imageHint}
                     width={600}
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -66,8 +63,7 @@ export function Work() {
                 </Button>
               </CardFooter>
             </Card>
-          );
-        })}
+          ))}
       </div>
     </section>
   );

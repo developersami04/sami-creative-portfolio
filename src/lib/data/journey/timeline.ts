@@ -3,7 +3,8 @@ import type { TimelineEvent } from "@/lib/types";
 export const journeyPageData = {
   title: "My Journey",
   description: "A chronicle of my career, growth, and the key milestones that have shaped my professional life.",
-  heroImageId: "journey-hero"
+  heroImageUrl: "https://picsum.photos/seed/301/1200/600",
+  heroImageHint: "winding road"
 };
 
 export const timelineData: TimelineEvent[] = [

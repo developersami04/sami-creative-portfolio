@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { HobbiesList } from "@/components/hobbies/HobbiesList";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { hobbiesPageData } from "@/lib/data/hobbies/hobbies";
 
 export const metadata = {
@@ -10,16 +9,14 @@ export const metadata = {
 };
 
 const HobbiesPage = () => {
-  const heroImage = PlaceHolderImages.find((img) => img.id === hobbiesPageData.heroImageId);
-
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {heroImage && (
+        {hobbiesPageData.heroImageUrl && (
           <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
+            src={hobbiesPageData.heroImageUrl}
+            alt={hobbiesPageData.title}
+            data-ai-hint={hobbiesPageData.heroImageHint}
             fill
             className="object-cover"
             priority

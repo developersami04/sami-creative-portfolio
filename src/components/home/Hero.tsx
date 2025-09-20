@@ -1,14 +1,11 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { aboutData } from "@/lib/data/home/about";
 import { Container } from "../shared/Container";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 
 export function Hero() {
-  const profileImage = PlaceHolderImages.find((img) => img.id === aboutData.profilePictureId);
-
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-32">
       <Container className="relative z-10">
@@ -41,12 +38,12 @@ export function Hero() {
           <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
             <div className="absolute inset-0 -rotate-6 transform rounded-2xl bg-secondary transition-transform duration-300 hover:rotate-0"></div>
             <div className="absolute inset-0 rotate-6 transform rounded-2xl bg-accent/30 transition-transform duration-300 hover:rotate-0"></div>
-            {profileImage && (
+            {aboutData.profilePictureUrl && (
               <div className="relative h-full w-full overflow-hidden rounded-2xl border-4 border-background shadow-2xl">
                 <Image
-                  src={profileImage.imageUrl}
-                  alt={profileImage.description}
-                  data-ai-hint={profileImage.imageHint}
+                  src={aboutData.profilePictureUrl}
+                  alt={aboutData.name}
+                  data-ai-hint={aboutData.profilePictureHint}
                   fill
                   className="object-cover"
                   priority

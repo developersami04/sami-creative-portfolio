@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
 import { Container } from "@/components/shared/Container";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { journeyPageData } from "@/lib/data/journey/timeline";
 
 export const metadata = {
@@ -10,16 +9,14 @@ export const metadata = {
 };
 
 const JourneyPage = () => {
-  const heroImage = PlaceHolderImages.find((img) => img.id === journeyPageData.heroImageId);
-
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {heroImage && (
+        {journeyPageData.heroImageUrl && (
           <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
+            src={journeyPageData.heroImageUrl}
+            alt={journeyPageData.title}
+            data-ai-hint={journeyPageData.heroImageHint}
             fill
             className="object-cover"
             priority

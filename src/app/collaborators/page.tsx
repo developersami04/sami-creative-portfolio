@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
 import { collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
 export const metadata = {
@@ -11,10 +10,7 @@ export const metadata = {
   description: "People I've had the pleasure to work with.",
 };
 
-const CollaboratorImage = ({ id, className }: { id: string; className?: string; }) => {
-  const image = PlaceHolderImages.find((img) => img.id === id);
-  if (!image) return null;
-
+const CollaboratorImage = ({ imageUrl, imageHint, className }: { imageUrl: string; imageHint: string; className?: string; }) => {
   return (
     <div
       className={cn(
@@ -23,9 +19,9 @@ const CollaboratorImage = ({ id, className }: { id: string; className?: string; 
       )}
     >
       <Image
-        src={image.imageUrl}
-        alt={image.description}
-        data-ai-hint={image.imageHint}
+        src={imageUrl}
+        alt=""
+        data-ai-hint={imageHint}
         fill
         sizes="(min-width: 640px) 18rem, 11rem"
         className="absolute inset-0 h-full w-full object-cover"
@@ -39,7 +35,7 @@ const CollaboratorsPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <div className="overflow-hidden pt-8">
+      <div className="overflow-hidden pt-2">
         <Container>
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
@@ -51,11 +47,11 @@ const CollaboratorsPage = () => {
           </div>
         </Container>
          <div className="mt-16 -mx-4 flex justify-center gap-x-6 sm:gap-x-8 px-4 sm:px-6 lg:px-8">
-            <CollaboratorImage id={collaboratorsPageData.heroImageIds[0]} className="rotate-2" />
-            <CollaboratorImage id={collaboratorsPageData.heroImageIds[1]} className="relative top-11 -rotate-2" />
-            <CollaboratorImage id={collaboratorsPageData.heroImageIds[2]} className="relative top-5 scale-110 z-10" />
-            <CollaboratorImage id={collaboratorsPageData.heroImageIds[3]} className="relative top-11 rotate-2" />
-            <CollaboratorImage id={collaboratorsPageData.heroImageIds[4]} className="-rotate-2" />
+            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[0].imageUrl} imageHint={collaboratorsPageData.heroImages[0].imageHint} className="rotate-2" />
+            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[1].imageUrl} imageHint={collaboratorsPageData.heroImages[1].imageHint} className="relative top-11 -rotate-2" />
+            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[2].imageUrl} imageHint={collaboratorsPageData.heroImages[2].imageHint} className="relative top-5 scale-110 z-10" />
+            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[3].imageUrl} imageHint={collaboratorsPageData.heroImages[3].imageHint} className="relative top-11 rotate-2" />
+            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[4].imageUrl} imageHint={collaboratorsPageData.heroImages[4].imageHint} className="-rotate-2" />
         </div>
       </div>
 

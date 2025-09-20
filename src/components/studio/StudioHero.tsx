@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { studioInfo } from "@/lib/data/studio/studio";
 
 export function StudioHero() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === studioInfo.heroImageId);
   return (
     <div className="relative overflow-hidden bg-primary">
       <Container className="relative z-10 grid grid-cols-1 items-center gap-12 py-20 md:grid-cols-2 md:py-32">
@@ -17,11 +15,11 @@ export function StudioHero() {
           </p>
         </div>
         <div className="relative aspect-video rounded-lg shadow-2xl">
-          {heroImage && (
+          {studioInfo.heroImageUrl && (
             <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              data-ai-hint={heroImage.imageHint}
+              src={studioInfo.heroImageUrl}
+              alt={studioInfo.title}
+              data-ai-hint={studioInfo.heroImageHint}
               fill
               className="rounded-lg object-cover"
             />

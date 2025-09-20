@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { hobbiesData, hobbiesPageData } from "@/lib/data/hobbies/hobbies";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function HobbiesList() {
   return (
@@ -22,16 +21,14 @@ export function HobbiesList() {
       </div>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {hobbiesData.map((hobby) => {
-          const hobbyImage = PlaceHolderImages.find((img) => img.id === hobby.imageId);
-          return (
+        {hobbiesData.map((hobby) => (
             <Card key={hobby.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              {hobbyImage && (
+              {hobby.imageUrl && (
                 <div className="aspect-video overflow-hidden">
                   <Image
-                    src={hobbyImage.imageUrl}
+                    src={hobby.imageUrl}
                     alt={hobby.title}
-                    data-ai-hint={hobbyImage.imageHint}
+                    data-ai-hint={hobby.imageHint}
                     width={600}
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -45,8 +42,7 @@ export function HobbiesList() {
                 <p className="text-muted-foreground">{hobby.description}</p>
               </CardContent>
             </Card>
-          );
-        })}
+          ))}
       </div>
     </section>
   );

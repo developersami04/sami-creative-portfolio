@@ -3,7 +3,8 @@ import type { Project } from "@/lib/types";
 export const projectsPageData = {
   title: "My Projects",
   description: "Here is a collection of my work, demonstrating my skills in design and development.",
-  heroImageId: "projects-hero"
+  heroImageUrl: "https://picsum.photos/seed/501/1200/600",
+  heroImageHint: "coding workspace"
 };
 
 export const workSectionData = {
@@ -17,7 +18,8 @@ export const workData: Project[] = [
     title: "Project Alpha",
     description: "A web application for real-time collaboration, built with a modern tech stack.",
     tags: ["React", "Node.js", "WebSockets"],
-    imageId: "project-1",
+    imageUrl: "https://picsum.photos/seed/101/600/400",
+    imageHint: "abstract geometric",
     link: "#",
   },
   {
@@ -25,7 +27,8 @@ export const workData: Project[] = [
     title: "Project Beta",
     description: "An e-commerce platform with a focus on user experience and performance.",
     tags: ["Next.js", "TypeScript", "Stripe"],
-    imageId: "project-2",
+    imageUrl: "https://picsum.photos/seed/102/600/400",
+    imageHint: "desk setup",
     link: "#",
   },
   {
@@ -33,7 +36,8 @@ export const workData: Project[] = [
     title: "Project Gamma",
     description: "A mobile-first social media app designed to connect local communities.",
     tags: ["React Native", "Firebase", "UX Design"],
-    imageId: "project-3",
+    imageUrl: "https://picsum.photos/seed/103/600/400",
+    imageHint: "code screen",
     link: "#",
   },
   {
@@ -41,7 +45,8 @@ export const workData: Project[] = [
     title: "Project Delta",
     description: "A data visualization dashboard for analyzing complex datasets.",
     tags: ["D3.js", "Python", "Flask"],
-    imageId: "project-4",
+    imageUrl: "https://picsum.photos/seed/104/600/400",
+    imageHint: "sketching ideas",
     link: "#",
   },
    {
@@ -49,7 +54,8 @@ export const workData: Project[] = [
     title: "Project Epsilon",
     description: "A comprehensive design system for a suite of enterprise tools.",
     tags: ["Figma", "Storybook", "Design"],
-    imageId: "project-5",
+    imageUrl: "https://picsum.photos/seed/105/600/400",
+    imageHint: "ui components",
     link: "#",
   },
 ];

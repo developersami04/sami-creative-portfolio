@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { Work } from "@/components/home/Work";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { projectsPageData } from "@/lib/data/projects/work";
 
 export const metadata = {
@@ -10,16 +9,14 @@ export const metadata = {
 };
 
 const ProjectsPage = () => {
-  const heroImage = PlaceHolderImages.find((img) => img.id === projectsPageData.heroImageId);
-
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {heroImage && (
+        {projectsPageData.heroImageUrl && (
           <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
+            src={projectsPageData.heroImageUrl}
+            alt={projectsPageData.title}
+            data-ai-hint={projectsPageData.heroImageHint}
             fill
             className="object-cover"
             priority

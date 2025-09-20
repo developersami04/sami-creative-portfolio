@@ -3,7 +3,8 @@ export type Project = {
   title: string;
   description: string;
   tags: string[];
-  imageId: string;
+  imageUrl: string;
+  imageHint: string;
   link: string;
 };
 
@@ -19,7 +20,13 @@ export type Hobby = {
   id: number;
   title:string;
   description: string;
-  imageId: string;
+  imageUrl: string;
+  imageHint: string;
+};
+
+export type HeroImage = {
+  imageUrl: string;
+  imageHint: string;
 };
 
 export type Collaborator = {
@@ -27,7 +34,8 @@ export type Collaborator = {
   name: string;
   title: string;
   summary: string;
-  imageId: string;
+  imageUrl: string;
+  imageHint: string;
 };
 
 export type Profile = {

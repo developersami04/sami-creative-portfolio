@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { collaboratorsData, collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
@@ -17,16 +16,14 @@ export function CollaboratorsList() {
       </div>
 
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {collaboratorsData.map((collaborator) => {
-          const collaboratorImage = PlaceHolderImages.find((img) => img.id === collaborator.imageId);
-          return (
+        {collaboratorsData.map((collaborator) => (
             <div key={collaborator.id}>
-              {collaboratorImage && (
+              {collaborator.imageUrl && (
                 <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-lg">
                   <Image
-                    src={collaboratorImage.imageUrl}
+                    src={collaborator.imageUrl}
                     alt={collaborator.name}
-                    data-ai-hint={collaboratorImage.imageHint}
+                    data-ai-hint={collaborator.imageHint}
                     fill
                     className="object-cover"
                   />
@@ -50,8 +47,7 @@ export function CollaboratorsList() {
                 </Link>
               </div>
             </div>
-          );
-        })}
+          ))}
       </div>
     </section>
   );
