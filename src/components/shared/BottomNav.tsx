@@ -15,7 +15,7 @@ import {
   Heart,
   Users,
   Sparkles,
-  User,
+  Lightbulb
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -24,6 +24,7 @@ const navLinks = [
     { href: "/", label: "Home", icon: Home },
     { href: "/journey", label: "Journey", icon: Milestone },
     { href: "/projects", label: "Projects", icon: Briefcase },
+    { href: "/skills", label: "Skills", icon: Lightbulb },
     { href: "/hobbies", label: "Hobbies", icon: Heart },
     { href: "/collaborators", label: "Collaborators", icon: Users },
     { href: "/studio", label: "Studio", icon: Sparkles },
@@ -33,7 +34,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
+    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:hidden">
       <TooltipProvider>
         <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
           {navLinks.map((link) => (
@@ -45,14 +46,14 @@ export function BottomNav() {
                   size="icon"
                   className={cn(
                     "h-12 w-12 rounded-full",
-                    pathname === link.href && link.href !== "#profiles" ? "bg-accent text-accent-foreground" : ""
+                    pathname === link.href ? "bg-accent text-accent-foreground" : ""
                   )}
                 >
                   <Link href={link.href}>
                     <link.icon
                       className={cn(
                         "h-5 w-5 transition-transform duration-300",
-                        pathname === link.href && link.href !== "#profiles" ? "scale-125" : ""
+                        pathname === link.href ? "scale-125" : ""
                       )}
                     />
                     <span className="sr-only">{link.label}</span>

@@ -44,3 +44,10 @@ export type Profile = {
   url: string;
   icon: "github" | "linkedin" | "twitter";
 };
+
+export type Skill = {
+  id: number;
+  name: string;
+  proficiency: number;
+  description: string;
+};

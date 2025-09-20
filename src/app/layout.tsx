@@ -31,7 +31,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="pb-24 md:pb-0">{children}</main>
+          <main className="pb-24">{children}</main>
           <Footer />
           <BottomNav />
           <Toaster />
