@@ -14,7 +14,8 @@ import {
   Heart,
   Users,
   Sparkles,
-  Lightbulb
+  Lightbulb,
+  Milestone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -23,6 +24,7 @@ const navLinks = [
     { href: "/", label: "Home", icon: Home },
     { href: "/projects", label: "Projects", icon: Briefcase },
     { href: "/skills", label: "Skills", icon: Lightbulb },
+    { href: "/journey", label: "My Journey", icon: Milestone },
     { href: "/hobbies", label: "Hobbies", icon: Heart },
     { href: "/collaborators", label: "Collaborators", icon: Users },
     { href: "/studio", label: "Studio", icon: Sparkles },
