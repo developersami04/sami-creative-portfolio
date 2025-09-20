@@ -4,22 +4,29 @@ export const collaboratorsData: Collaborator[] = [
     {
         id: 1,
         name: "Alex Johnson",
-        title: "Project Manager, Tech Solutions Co.",
-        testimonial: "Working with them has been a fantastic experience. Their dedication and technical skills were instrumental in our project's success. A true professional and a great team player.",
+        title: "Project Manager",
+        summary: "Dedicated to ensuring customer satisfaction and success, with a proactive approach to client support and retention.",
         imageId: "collaborator-1"
     },
     {
         id: 2,
         name: "Samantha Lee",
-        title: "Lead Designer, Creative Agency",
-        testimonial: "An absolute pleasure to collaborate with. They have a remarkable ability to translate complex design concepts into functional, elegant code. Their attention to detail is second to none.",
+        title: "Lead Designer",
+        summary: "Operations specialist with a background in scaling startups, ensuring smooth and efficient company operations.",
         imageId: "collaborator-2"
     },
     {
         id: 3,
         name: "Michael Chen",
-        title: "CTO, Innovate Inc.",
-        testimonial: "Their contributions to our team were invaluable. They consistently delivered high-quality work, showed great leadership, and helped mentor other developers. Highly recommended.",
+        title: "CTO",
+        summary: "Passionate product manager focused on delivering user-centric solutions that meet market needs.",
         imageId: "collaborator-3"
+    },
+     {
+        id: 4,
+        name: "James Wilson",
+        title: "Lead Engineer",
+        summary: "Technical guru with a passion for developing scalable and secure cloud-based applications.",
+        imageId: "collaborator-1"
     },
 ];
