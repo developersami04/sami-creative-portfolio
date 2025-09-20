@@ -4,12 +4,10 @@ import React, { useEffect, useRef } from 'react';
 
 export function ThunderCursor() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const customCursor = cursorRef.current;
-    if (!canvas || !customCursor) return;
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -145,8 +143,6 @@ export function ThunderCursor() {
     }
     
     const handleMouseMove = (e: MouseEvent) => {
-      customCursor.style.left = (e.clientX - 24) + 'px';
-      customCursor.style.top = (e.clientY - 24) + 'px';
       if (lastMousePos && canCreateBolt) {
         bolts.push(new LightningBolt(lastMousePos.x, lastMousePos.y, e.clientX, e.clientY));
         canCreateBolt = false;
@@ -155,20 +151,7 @@ export function ThunderCursor() {
       lastMousePos = { x: e.clientX, y: e.clientY };
     };
 
-    const handleClick = (e: MouseEvent) => {
-      const bottomEdgeThreshold = 50;
-      if (window.innerHeight - e.clientY < bottomEdgeThreshold) {
-        if (!customCursor.classList.contains('shake')) {
-          customCursor.classList.add('shake');
-          setTimeout(() => {
-            customCursor.classList.remove('shake');
-          }, 400);
-        }
-      }
-    };
-
     window.addEventListener('mousemove', handleMouseMove);
-    document.body.addEventListener('click', handleClick);
 
     function animate() {
       if (!ctx) return;
@@ -189,15 +172,11 @@ export function ThunderCursor() {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
-      document.body.removeEventListener('click', handleClick);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <>
-      <div id="custom-cursor" ref={cursorRef}></div>
-      <canvas id="thunder-canvas" ref={canvasRef}></canvas>
-    </>
+    <canvas id="thunder-canvas" ref={canvasRef}></canvas>
   );
 }
