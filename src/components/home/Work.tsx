@@ -10,6 +10,9 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { workData } from "@/lib/data/projects/work";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export function Work() {
   return (
@@ -23,13 +26,13 @@ export function Work() {
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {workData.map((project) => {
           const projectImage = PlaceHolderImages.find((img) => img.id === project.imageId);
           return (
-            <Card key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+            <Card key={project.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               {projectImage && (
-                <div className="aspect-video overflow-hidden">
+                <div className="relative aspect-video overflow-hidden">
                   <Image
                     src={projectImage.imageUrl}
                     alt={project.title}
@@ -38,23 +41,29 @@ export function Work() {
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
               )}
-              <CardHeader>
+              <CardHeader className="flex-grow">
                 <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-grow">
-                {/* Can add more content here if needed */}
-              </CardContent>
-              <CardFooter>
-                <div className="flex flex-wrap gap-2">
+              <CardContent className="mt-auto">
+                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="secondary">
                       {tag}
                     </Badge>
                   ))}
                 </div>
+              </CardContent>
+              <CardFooter>
+                 <Button asChild variant="outline" className="w-full group/button">
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                        View Project
+                        <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover/button:-translate-y-1 group-hover/button:translate-x-1" />
+                    </Link>
+                </Button>
               </CardFooter>
             </Card>
           );

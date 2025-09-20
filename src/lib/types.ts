@@ -4,6 +4,7 @@ export type Project = {
   description: string;
   tags: string[];
   imageId: string;
+  link: string;
 };
 
 export type TimelineEvent = {

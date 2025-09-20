@@ -25,6 +25,12 @@
       "imageHint": "sketching ideas"
     },
     {
+      "id": "project-5",
+      "description": "Colorful user interface components.",
+      "imageUrl": "https://picsum.photos/seed/105/600/400",
+      "imageHint": "ui components"
+    },
+    {
       "id": "studio-hero",
       "description": "A creative studio space with art supplies.",
       "imageUrl": "https://picsum.photos/seed/201/1200/800",
@@ -101,6 +107,12 @@
       "description": "Abstract dark background with blue and purple gradients.",
       "imageUrl": "https://picsum.photos/seed/702/1920/1080",
       "imageHint": "abstract background"
+    },
+     {
+      "id": "hero-bg-2",
+      "description": "A vibrant, abstract design with flowing colors and dynamic shapes, creating a sense of energy and creativity.",
+      "imageUrl": "https://picsum.photos/seed/1/1920/1080",
+      "imageHint": "vibrant abstract"
     }
   ]
 }

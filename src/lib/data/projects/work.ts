@@ -7,6 +7,7 @@ export const workData: Project[] = [
     description: "A web application for real-time collaboration, built with a modern tech stack.",
     tags: ["React", "Node.js", "WebSockets"],
     imageId: "project-1",
+    link: "#",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const workData: Project[] = [
     description: "An e-commerce platform with a focus on user experience and performance.",
     tags: ["Next.js", "TypeScript", "Stripe"],
     imageId: "project-2",
+    link: "#",
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const workData: Project[] = [
     description: "A mobile-first social media app designed to connect local communities.",
     tags: ["React Native", "Firebase", "UX Design"],
     imageId: "project-3",
+    link: "#",
   },
   {
     id: 4,
@@ -28,5 +31,14 @@ export const workData: Project[] = [
     description: "A data visualization dashboard for analyzing complex datasets.",
     tags: ["D3.js", "Python", "Flask"],
     imageId: "project-4",
+    link: "#",
+  },
+   {
+    id: 5,
+    title: "Project Epsilon",
+    description: "A comprehensive design system for a suite of enterprise tools.",
+    tags: ["Figma", "Storybook", "Design"],
+    imageId: "project-5",
+    link: "#",
   },
 ];
