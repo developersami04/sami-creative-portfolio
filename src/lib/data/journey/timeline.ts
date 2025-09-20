@@ -9,6 +9,7 @@ export const journeyPageData = {
 
 export const timelineData: TimelineEvent[] = [
   {
+    id: 1,
     date: "2022 - Present",
     title: "Senior Developer",
     company: "Innovate Inc.",
@@ -16,6 +17,7 @@ export const timelineData: TimelineEvent[] = [
     tags: ["React", "TypeScript", "Leadership"],
   },
   {
+    id: 2,
     date: "2020 - 2022",
     title: "Mid-Level Developer",
     company: "Tech Solutions Co.",
@@ -23,6 +25,7 @@ export const timelineData: TimelineEvent[] = [
     tags: ["Vue.js", "Jest", "CI/CD"],
   },
   {
+    id: 3,
     date: "2018 - 2020",
     title: "Junior Developer",
     company: "Creative Agency",
@@ -30,6 +33,7 @@ export const timelineData: TimelineEvent[] = [
     tags: ["HTML", "CSS", "JavaScript", "jQuery"],
   },
   {
+    id: 4,
     date: "2014 - 2018",
     title: "B.S. in Computer Science",
     company: "University of Technology",

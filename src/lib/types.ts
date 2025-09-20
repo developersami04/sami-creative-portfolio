@@ -9,6 +9,7 @@ export type Project = {
 };
 
 export type TimelineEvent = {
+  id: number;
   date: string;
   title: string;
   company: string;

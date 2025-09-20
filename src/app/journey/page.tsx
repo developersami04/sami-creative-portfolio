@@ -31,9 +31,7 @@ const JourneyPage = () => {
         </Container>
       </div>
 
-      <Container>
-        <JourneyTimeline />
-      </Container>
+      <JourneyTimeline />
     </>
   );
 };

@@ -90,70 +90,20 @@
 }
 
 @layer utilities {
-  .timeline-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: theme('spacing.2');
-    height: 100%;
-    width: 2px;
-    background: hsl(var(--border));
-  }
-
-  @screen lg {
-    .timeline-container::before {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: theme('spacing.2');
-    left: -1px;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 9999px;
-    background-color: hsl(var(--background));
-    border: 2px solid hsl(var(--accent));
-    z-index: 10;
-  }
-  
-  @screen lg {
-    .timeline-item::before {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
-  .timeline-content::before {
-      content: '';
-      position: absolute;
-      top: theme('spacing.3');
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-  }
-
-  @screen lg {
-    .timeline-item:nth-child(odd) .timeline-content::before {
-      right: 100%;
-      border-right: 8px solid hsl(var(--border));
-    }
-    .timeline-item:nth-child(even) .timeline-content::before {
-      left: 100%;
-      border-left: 8px solid hsl(var(--border));
-    }
-  }
-
   .animated-aurora {
     animation: aurora 20s linear infinite;
     background:
      radial-gradient(ellipse at 50% 50%, hsl(var(--accent) / 0.2), transparent 70%),
      radial-gradient(ellipse at 50% 50%, hsl(var(--primary) / 0.2), transparent 70%);
     background-size: 400% 400%;
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .animate-slide-out {
+    animation: slide-out 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
   }
 }
 
@@ -163,5 +113,27 @@
   }
   to {
     background-position: 350% 50%, 350% 50%;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translate(-100px, 100px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-100px, -100px);
   }
 }
