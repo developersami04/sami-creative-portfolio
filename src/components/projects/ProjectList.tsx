@@ -47,15 +47,17 @@ export function ProjectList() {
       </div>
 
       <div className="mb-12 max-w-xl mx-auto">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Search projects by title, description, or tech..."
-            className="w-full pl-10"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+        <div className="group relative rounded-full border bg-card p-2 shadow-sm transition-all focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-background">
+          <div className="relative flex items-center">
+            <Search className="absolute left-3 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-accent" />
+            <Input
+              type="search"
+              placeholder="Search projects by title, description, or tech..."
+              className="w-full rounded-full border-none bg-transparent pl-10 focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
       </div>
 
