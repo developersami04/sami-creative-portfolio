@@ -57,3 +57,12 @@ export type Journey = {
   description: string;
   icon: LucideIcon;
 };
+
+export type StudioItem = {
+    id: number;
+    title: string;
+    description: string;
+    category: "Photography" | "Videography" | "Creative Arts";
+    imageUrl: string;
+    imageHint: string;
+};
