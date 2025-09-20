@@ -11,11 +11,16 @@ import type { HeroImage } from "@/lib/types";
 
 export function Hero() {
   const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
+  const [profilePic, setProfilePic] = useState<HeroImage | null>(null);
 
   useEffect(() => {
     if (aboutData.heroBackgrounds && aboutData.heroBackgrounds.length > 0) {
       const randomIndex = Math.floor(Math.random() * aboutData.heroBackgrounds.length);
       setHeroBg(aboutData.heroBackgrounds[randomIndex]);
+    }
+    if (aboutData.profilePictures && aboutData.profilePictures.length > 0) {
+      const randomIndex = Math.floor(Math.random() * aboutData.profilePictures.length);
+      setProfilePic(aboutData.profilePictures[randomIndex]);
     }
   }, []);
 
@@ -64,12 +69,12 @@ export function Hero() {
           <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
             <div className="absolute inset-0 -rotate-6 transform rounded-2xl bg-secondary transition-transform duration-300 hover:rotate-0"></div>
             <div className="absolute inset-0 rotate-6 transform rounded-2xl bg-accent/30 transition-transform duration-300 hover:rotate-0"></div>
-            {aboutData.profilePictureUrl && (
+            {profilePic && (
               <div className="relative h-full w-full overflow-hidden rounded-2xl border-4 border-background shadow-2xl">
                 <Image
-                  src={aboutData.profilePictureUrl}
+                  src={profilePic.imageUrl}
                   alt={aboutData.name}
-                  data-ai-hint={aboutData.profilePictureHint}
+                  data-ai-hint={profilePic.imageHint}
                   fill
                   className="object-cover"
                   priority
