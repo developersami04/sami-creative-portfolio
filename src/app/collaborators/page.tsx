@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
@@ -10,25 +11,24 @@ export const metadata = {
   description: "People I've had the pleasure to work with.",
 };
 
-const CollaboratorImage = ({ id, className, colorClass }: { id: string; className: string; colorClass: string }) => {
+const CollaboratorImage = ({ id, className }: { id: string; className?: string; }) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
   if (!image) return null;
 
   return (
     <div
       className={cn(
-        "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl shadow-2xl",
+        "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800",
         className
       )}
     >
-      <div className={cn("absolute inset-0 rounded-xl sm:rounded-2xl", colorClass)} />
       <Image
         src={image.imageUrl}
         alt={image.description}
         data-ai-hint={image.imageHint}
         fill
-        className="absolute inset-0 h-full w-full object-cover p-2"
-        priority
+        sizes="(min-width: 640px) 18rem, 11rem"
+        className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
   );
@@ -36,29 +36,34 @@ const CollaboratorImage = ({ id, className, colorClass }: { id: string; classNam
 
 
 const CollaboratorsPage = () => {
-  const teamImages = collaboratorsData.slice(0, 5);
+  // Ensure we have enough data, repeating if necessary
+  const teamImageIds = [
+    collaboratorsData[0]?.imageId || 'collaborator-1',
+    collaboratorsData[1]?.imageId || 'collaborator-2',
+    collaboratorsData[2]?.imageId || 'collaborator-3',
+    collaboratorsData[3]?.imageId || 'collaborator-1',
+    collaboratorsData[0]?.imageId || 'collaborator-2',
+  ];
 
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-background text-foreground">
       <div className="overflow-hidden py-24 sm:py-32">
         <Container>
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
               Meet our Team
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="mt-6 text-lg leading-8 text-foreground/80">
               A diverse team of passionate professionals with unique skills driving innovation and excellence in every project.
             </p>
           </div>
         </Container>
-        <div className="mt-16 flex justify-center">
-          <div className="relative flex w-full max-w-5xl items-center justify-center">
-              <CollaboratorImage id={teamImages[0].imageId} className="z-10 -rotate-6" colorClass="bg-violet-500" />
-              <CollaboratorImage id={teamImages[1].imageId} className="-ml-12 rotate-3" colorClass="bg-indigo-500" />
-              <CollaboratorImage id={teamImages[2].imageId} className="z-20 -ml-12 scale-110" colorClass="bg-gray-800" />
-              <CollaboratorImage id={teamImages[3].imageId} className="-ml-12 -rotate-3" colorClass="bg-orange-500" />
-              <CollaboratorImage id={teamImages[0].imageId} className="z-10 -ml-12 rotate-6" colorClass="bg-rose-500" />
-          </div>
+         <div className="mt-16 -mx-4 flex justify-center gap-x-6 sm:gap-x-8 px-4 sm:px-6 lg:px-8">
+            <CollaboratorImage id={teamImageIds[0]} className="rotate-2" />
+            <CollaboratorImage id={teamImageIds[1]} className="relative top-11 -rotate-2" />
+            <CollaboratorImage id={teamImageIds[2]} className="relative top-5 scale-110 z-10" />
+            <CollaboratorImage id={teamImageIds[3]} className="relative top-11 rotate-2" />
+            <CollaboratorImage id={teamImageIds[4]} className="-rotate-2" />
         </div>
       </div>
 
