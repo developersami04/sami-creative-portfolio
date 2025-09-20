@@ -33,14 +33,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThunderCursor />
-          <Header />
-          <main className="relative z-10 pb-24">
-            <PageTransition>
-              {children}
-            </PageTransition>
-          </main>
-          <Footer />
-          <BottomNav />
+          <div className="relative z-10">
+            <Header />
+            <main className="pb-24">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </main>
+            <Footer />
+            <BottomNav />
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>
