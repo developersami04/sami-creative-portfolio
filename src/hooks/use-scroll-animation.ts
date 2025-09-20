@@ -8,14 +8,17 @@ export function useScrollAnimation() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // Set inView to true if the element is intersecting.
+        // This will also handle the case where the element is already in view on load.
         if (entry.isIntersecting) {
           setInView(true);
-          // Once it's in view, we don't need to observe it anymore
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
+          // Once in view, we can stop observing.
+          observer.disconnect();
         }
       },
       {
@@ -23,15 +26,11 @@ export function useScrollAnimation() {
       }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(element);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      // Clean up the observer on component unmount.
+      observer.disconnect();
     };
   }, []);
 
