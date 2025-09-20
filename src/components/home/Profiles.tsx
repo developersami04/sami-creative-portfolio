@@ -4,7 +4,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { profilesData } from "@/lib/data/home/profiles";
+import { profilesData, profilesInfo } from "@/lib/data/home/profiles";
 
 const iconMap = {
   github: Github,
@@ -17,10 +17,10 @@ export function Profiles() {
     <section id="profiles" className="py-16 md:py-24 border-t">
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Find Me Online
+          {profilesInfo.title}
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-          Connect with me on these platforms.
+          {profilesInfo.description}
         </p>
       </div>
 

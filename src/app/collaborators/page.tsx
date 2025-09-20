@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
-import { collaboratorsData } from "@/lib/data/collaborators/collaborators";
+import { collaboratorsData, collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -51,10 +51,10 @@ const CollaboratorsPage = () => {
         <Container>
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              I Have Worked With ...
+              {collaboratorsPageData.title}
             </h1>
             <p className="mt-6 text-lg leading-8 text-foreground/80">
-              A diverse team of passionate professionals with unique skills driving innovation and excellence in every project.
+              {collaboratorsPageData.description}
             </p>
           </div>
         </Container>

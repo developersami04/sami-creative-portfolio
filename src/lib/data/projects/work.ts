@@ -1,5 +1,15 @@
 import type { Project } from "@/lib/types";
 
+export const projectsPageData = {
+  title: "My Projects",
+  description: "Here is a collection of my work, demonstrating my skills in design and development."
+};
+
+export const workSectionData = {
+  title: "My Work",
+  description: "A selection of projects that I'm proud of."
+};
+
 export const workData: Project[] = [
   {
     id: 1,

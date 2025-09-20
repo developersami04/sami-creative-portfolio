@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { collaboratorsData } from "@/lib/data/collaborators/collaborators";
+import { collaboratorsData, collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
@@ -9,10 +9,10 @@ export function CollaboratorsList() {
     <section id="collaborators" className="py-16 md:py-24">
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Team
+          {collaboratorsPageData.team.title}
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-300">
-          A diverse group of passionate professionals, each bringing unique skills and experiences to drive innovation and excellence in every project we undertake.
+          {collaboratorsPageData.team.description}
         </p>
       </div>
 

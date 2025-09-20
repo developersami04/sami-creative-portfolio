@@ -1,5 +1,10 @@
 import type { TimelineEvent } from "@/lib/types";
 
+export const journeyPageData = {
+  title: "My Journey",
+  description: "A chronicle of my career, growth, and the key milestones that have shaped my professional life."
+};
+
 export const timelineData: TimelineEvent[] = [
   {
     date: "2022 - Present",

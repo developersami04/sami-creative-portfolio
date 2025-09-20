@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { hobbiesData } from "@/lib/data/hobbies/hobbies";
+import { hobbiesData, hobbiesPageData } from "@/lib/data/hobbies/hobbies";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function HobbiesList() {
@@ -14,10 +14,10 @@ export function HobbiesList() {
     <section id="hobbies" className="py-16 md:py-24">
        <div className="mb-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          What I Do For Fun
+          {hobbiesPageData.list.title}
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-          A glimpse into my passions outside of the digital world.
+          {hobbiesPageData.list.description}
         </p>
       </div>
 

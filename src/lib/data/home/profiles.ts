@@ -1,5 +1,10 @@
 import type { Profile } from "@/lib/types";
 
+export const profilesInfo = {
+  title: "Find Me Online",
+  description: "Connect with me on these platforms.",
+};
+
 export const profilesData: Profile[] = [
   {
     id: 1,

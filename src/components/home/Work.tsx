@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { workData } from "@/lib/data/projects/work";
+import { workData, workSectionData } from "@/lib/data/projects/work";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -19,10 +19,10 @@ export function Work() {
     <section id="work" className="py-16 md:py-24 border-t">
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          My Work
+          {workSectionData.title}
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-          A selection of projects that I'm proud of.
+          {workSectionData.description}
         </p>
       </div>
 
