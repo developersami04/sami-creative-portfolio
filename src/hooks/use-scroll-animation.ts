@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
@@ -11,9 +12,10 @@ export function useScrollAnimation() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-        } else {
-          // Optional: reset animation when out of view
-          // setInView(false);
+          // Once it's in view, we don't need to observe it anymore
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       {

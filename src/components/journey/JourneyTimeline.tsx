@@ -1,3 +1,5 @@
+"use client";
+
 import { journeyData } from "@/lib/data/journey/journey";
 import {
   Card,
@@ -5,10 +7,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 export function JourneyTimeline() {
+  const { ref, inView } = useScrollAnimation();
+
   return (
-    <div className="relative max-w-3xl mx-auto">
+    <div
+      ref={ref}
+      className={cn(
+        "relative max-w-3xl mx-auto transition-all duration-700",
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      )}
+    >
       {/* The vertical line */}
       <div className="absolute left-5 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
       <ul className="space-y-12">

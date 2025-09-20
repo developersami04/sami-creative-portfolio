@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Card,
@@ -7,10 +9,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { hobbiesData, hobbiesPageData } from "@/lib/data/hobbies/hobbies";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 export function HobbiesList() {
+  const { ref, inView } = useScrollAnimation();
+
   return (
-    <section id="hobbies" className="py-16 md:py-24">
+    <section
+      id="hobbies"
+      ref={ref}
+      className={cn(
+        "py-16 md:py-24 transition-all duration-700",
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      )}
+    >
        <div className="mb-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {hobbiesPageData.list.title}

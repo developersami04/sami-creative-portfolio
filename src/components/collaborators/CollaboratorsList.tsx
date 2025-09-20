@@ -1,11 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import { collaboratorsData, collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 export function CollaboratorsList() {
+  const { ref, inView } = useScrollAnimation();
+
   return (
-    <section id="collaborators" className="py-16 md:py-24">
+    <section
+      id="collaborators"
+      ref={ref}
+      className={cn(
+        "py-16 md:py-24 transition-all duration-700",
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      )}
+    >
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {collaboratorsPageData.team.title}

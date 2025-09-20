@@ -1,12 +1,24 @@
+"use client";
+
 import { aboutData } from "@/lib/data/home/about";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Send } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 export function About() {
+  const { ref, inView } = useScrollAnimation();
+
   return (
     <section id="about" className="py-16 md:py-24">
-      <div className="mx-auto max-w-3xl text-center">
+      <div
+        ref={ref}
+        className={cn(
+          "mx-auto max-w-3xl text-center transition-all duration-700",
+          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        )}
+      >
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {aboutData.sectionTitle}
         </h2>
