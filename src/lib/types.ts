@@ -15,6 +15,7 @@ export type TimelineEvent = {
   company: string;
   description: string;
   tags?: string[];
+  icon?: "work" | "education";
 };
 
 export type Hobby = {
