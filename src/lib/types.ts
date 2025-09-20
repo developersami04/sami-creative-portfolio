@@ -8,16 +8,6 @@ export type Project = {
   link: string;
 };
 
-export type TimelineEvent = {
-  id: number;
-  date: string;
-  title: string;
-  company: string;
-  description: string;
-  tags?: string[];
-  icon?: "work" | "education";
-};
-
 export type Hobby = {
   id: number;
   title:string;

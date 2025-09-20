@@ -11,7 +11,6 @@ import {
 import {
   Home,
   Briefcase,
-  Milestone,
   Heart,
   Users,
   Sparkles,
@@ -22,7 +21,6 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
     { href: "/", label: "Home", icon: Home },
-    { href: "/journey", label: "Journey", icon: Milestone },
     { href: "/projects", label: "Projects", icon: Briefcase },
     { href: "/skills", label: "Skills", icon: Lightbulb },
     { href: "/hobbies", label: "Hobbies", icon: Heart },
