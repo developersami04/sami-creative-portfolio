@@ -10,14 +10,14 @@ export function JourneyTimeline() {
           <div
             key={index}
             className={cn(
-              "relative timeline-item mb-12",
+              "relative timeline-item mb-12 pl-8 lg:pl-0",
               "lg:w-1/2",
               index % 2 === 0 ? "lg:ml-auto lg:pl-10" : "lg:pr-10"
             )}
           >
             <div
               className={cn(
-                "ml-8 pl-4 lg:ml-0 lg:pl-0",
+                "lg:ml-0 lg:pl-0",
                 index % 2 === 0 ? "lg:text-left" : "lg:text-right"
               )}
             >
@@ -25,7 +25,7 @@ export function JourneyTimeline() {
             </div>
             <div
               className={cn(
-                "relative ml-8 lg:ml-0 mt-2 rounded-lg border bg-card p-6 shadow-sm timeline-content"
+                "relative lg:ml-0 mt-2 rounded-lg border bg-card p-6 shadow-sm timeline-content"
               )}
             >
               <h3 className="text-xl font-bold font-headline">{item.title}</h3>

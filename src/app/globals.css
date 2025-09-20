@@ -111,19 +111,19 @@
     content: '';
     position: absolute;
     top: theme('spacing.2');
-    left: theme('spacing.2');
+    left: -1px;
     width: 1rem;
     height: 1rem;
     border-radius: 9999px;
     background-color: hsl(var(--background));
     border: 2px solid hsl(var(--accent));
-    transform: translateX(-50%);
     z-index: 10;
   }
   
   @screen lg {
     .timeline-item::before {
       left: 50%;
+      transform: translateX(-50%);
     }
   }
 
