@@ -21,7 +21,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/101/600/400",
     imageHint: "abstract geometric",
     link: "#",
-    timeOfDevelopment: "3 Months",
+    year: "2023",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/102/600/400",
     imageHint: "desk setup",
     link: "#",
-    timeOfDevelopment: "6 Months",
+    year: "2023",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/103/600/400",
     imageHint: "code screen",
     link: "#",
-    timeOfDevelopment: "5 Months",
+    year: "2022",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/104/600/400",
     imageHint: "sketching ideas",
     link: "#",
-    timeOfDevelopment: "4 Months",
+    year: "2021",
   },
    {
     id: 5,
@@ -61,6 +61,6 @@ export const workData: Project[] = [
     imageUrl: "https://picsum.photos/seed/105/600/400",
     imageHint: "ui components",
     link: "#",
-    timeOfDevelopment: "8 Months",
+    year: "2020",
   },
 ];

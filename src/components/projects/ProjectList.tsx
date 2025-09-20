@@ -26,11 +26,11 @@ export function ProjectList() {
     }
     const lowercasedTerm = searchTerm.toLowerCase();
     return workData.filter((project) => {
-      const { title, description, tags, timeOfDevelopment } = project;
+      const { title, description, tags, year } = project;
       return (
         title.toLowerCase().includes(lowercasedTerm) ||
         description.toLowerCase().includes(lowercasedTerm) ||
-        timeOfDevelopment.toLowerCase().includes(lowercasedTerm) ||
+        year.toLowerCase().includes(lowercasedTerm) ||
         tags.some((tag) => tag.toLowerCase().includes(lowercasedTerm))
       );
     });
@@ -88,7 +88,7 @@ export function ProjectList() {
                 </CardTitle>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
                   <Calendar className="h-4 w-4" />
-                  <span>{project.timeOfDevelopment}</span>
+                  <span>{project.year}</span>
                 </div>
                 <CardDescription className="pt-2">{project.description}</CardDescription>
               </CardHeader>

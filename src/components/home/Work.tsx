@@ -45,7 +45,7 @@ export function Work() {
                 <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
                   <Calendar className="h-4 w-4" />
-                  <span>{project.timeOfDevelopment}</span>
+                  <span>{project.year}</span>
                 </div>
                 <CardDescription className="pt-2">{project.description}</CardDescription>
               </CardHeader>

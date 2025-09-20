@@ -8,7 +8,7 @@ export type Project = {
   imageUrl: string;
   imageHint: string;
   link: string;
-  timeOfDevelopment: string;
+  year: string;
 };
 
 export type Hobby = {
