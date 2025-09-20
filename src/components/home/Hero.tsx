@@ -33,9 +33,10 @@ export function Hero() {
             alt={heroBg.imageHint}
             data-ai-hint={heroBg.imageHint}
             fill
-            className="object-cover opacity-20"
+            className="object-cover"
             priority
           />
+          <div className="absolute inset-0 bg-background/80" />
           <div className="animated-aurora absolute inset-0" />
         </>
       )}
