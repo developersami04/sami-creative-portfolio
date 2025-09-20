@@ -1,14 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { aboutData } from "@/lib/data/home/about";
 import { Container } from "../shared/Container";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import type { HeroImage } from "@/lib/types";
 
 export function Hero() {
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
+
+  useEffect(() => {
+    if (aboutData.heroBackgrounds && aboutData.heroBackgrounds.length > 0) {
+      const randomIndex = Math.floor(Math.random() * aboutData.heroBackgrounds.length);
+      setHeroBg(aboutData.heroBackgrounds[randomIndex]);
+    }
+  }, []);
+
   return (
-    <section className="relative overflow-hidden bg-background py-20 sm:py-32">
-      <Container className="relative z-10">
+    <section className="relative overflow-hidden bg-background">
+       {heroBg && (
+        <>
+          <Image
+            src={heroBg.imageUrl}
+            alt={heroBg.imageHint}
+            data-ai-hint={heroBg.imageHint}
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="animated-aurora absolute inset-0" />
+        </>
+      )}
+      <Container className="relative z-10 py-20 sm:py-32">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           {/* Text Content */}
           <div className="max-w-xl text-center md:text-left">

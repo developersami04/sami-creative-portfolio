@@ -1,3 +1,5 @@
+import type { HeroImage } from "@/lib/types";
+
 export const aboutData = {
     sectionTitle: "About Me",
     name: "Sami",
@@ -9,6 +11,10 @@ export const aboutData = {
     ],
     profilePictureUrl: "https://picsum.photos/seed/701/500/500",
     profilePictureHint: "professional headshot",
-    heroBgUrl: "https://picsum.photos/seed/702/1920/1080",
-    heroBgHint: "abstract background",
+    heroBackgrounds: [
+        { imageUrl: "https://picsum.photos/seed/702/1920/1080", imageHint: "abstract tech background" },
+        { imageUrl: "https://picsum.photos/seed/703/1920/1080", imageHint: "glowing data stream" },
+        { imageUrl: "https://picsum.photos/seed/704/1920/1080", imageHint: "neural network visualization" },
+        { imageUrl: "https://picsum.photos/seed/705/1920/1080", imageHint: "modern coding environment" },
+    ] as HeroImage[],
 };
