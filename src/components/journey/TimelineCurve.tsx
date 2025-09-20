@@ -17,20 +17,35 @@ export function TimelineCurve() {
   }, []);
 
   const handleScroll = () => {
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = window.scrollY / totalHeight;
-    setScrollPosition(progress);
+    // We calculate scroll progress relative to the main content area, not the whole body,
+    // to make the animation feel more connected to the timeline items.
+    const timelineElement = document.querySelector('.md\\:col-span-2');
+    if (!timelineElement) return;
+
+    const { top, height } = timelineElement.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Calculate how much of the timeline container is visible
+    const visibleHeight = Math.min(height + top, windowHeight) - Math.max(top, 0);
+    const progress = visibleHeight / (height * 0.8); // Adjust the denominator to control animation speed
+    
+    // A simpler alternative based on overall scroll:
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const overallProgress = window.scrollY / totalHeight;
+
+    setScrollPosition(overallProgress * 1.5); // Multiplier to speed up drawing
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
     const path = document.querySelector('#timeline-path') as SVGPathElement;
     if (path && pathLength > 0) {
-      const drawLength = pathLength * scrollPosition * 2; // Adjust multiplier for speed
+      const drawLength = pathLength * Math.min(scrollPosition, 1); // Cap progress at 1
       path.style.strokeDashoffset = `${pathLength - drawLength}`;
     }
   }, [scrollPosition, pathLength]);
@@ -42,6 +57,7 @@ export function TimelineCurve() {
       viewBox="0 0 200 800"
       preserveAspectRatio="none"
       className="absolute top-0 right-0 h-full w-full"
+      aria-hidden="true"
     >
       {/* Background Path */}
       <path
@@ -57,6 +73,7 @@ export function TimelineCurve() {
         fill="none"
         stroke="hsl(var(--accent))"
         strokeWidth="3"
+        strokeLinecap="round"
       />
     </svg>
   );
