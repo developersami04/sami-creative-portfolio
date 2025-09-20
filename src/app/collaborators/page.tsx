@@ -47,11 +47,11 @@ const CollaboratorsPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <div className="overflow-hidden pt-16 sm:pt-24 pb-24 sm:pb-32">
+      <div className="overflow-hidden pt-16 sm:pt-5 pb-24 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              Meet our Team
+              I Have Worked With ...
             </h1>
             <p className="mt-6 text-lg leading-8 text-foreground/80">
               A diverse team of passionate professionals with unique skills driving innovation and excellence in every project.
