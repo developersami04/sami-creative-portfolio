@@ -1,11 +1,17 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 
 export function ThunderCursor() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
+    if (theme !== 'dark') {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -174,7 +180,11 @@ export function ThunderCursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]);
+
+  if (theme !== 'dark') {
+    return null;
+  }
 
   return (
     <canvas id="thunder-canvas" ref={canvasRef}></canvas>
