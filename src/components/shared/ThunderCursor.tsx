@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from 'react';
@@ -5,18 +6,37 @@ import { useTheme } from 'next-themes';
 
 export function ThunderCursor() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    if (theme !== 'dark') {
-      return;
-    }
-
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !resolvedTheme) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    const isDarkMode = resolvedTheme === 'dark';
+
+    const boltColors = {
+      dark: {
+        bg: 'rgba(12, 10, 26, 0.25)',
+        mainStroke: '#FFFF99',
+        mainShadow: '#FFD700',
+        innerStroke: '#FFFFFF',
+        branchStroke: '#FFD700',
+        branchShadow: '#FFFF00',
+      },
+      light: {
+        bg: 'rgba(230, 240, 255, 0.25)',
+        mainStroke: '#87CEFA', // LightSkyBlue
+        mainShadow: '#00BFFF', // DeepSkyBlue
+        innerStroke: '#FFFFFF',
+        branchStroke: '#87CEEB', // SkyBlue
+        branchShadow: '#4682B4', // SteelBlue
+      }
+    };
+
+    const colors = isDarkMode ? boltColors.dark : boltColors.light;
 
     let bolts: LightningBolt[] = [];
     let canCreateBolt = true;
@@ -81,9 +101,9 @@ export function ThunderCursor() {
         if (!ctx) return;
         ctx.save();
         ctx.globalAlpha = this.alpha;
-        ctx.strokeStyle = '#FFFF99';
+        ctx.strokeStyle = colors.mainStroke;
         ctx.lineWidth = 4;
-        ctx.shadowColor = '#FFD700';
+        ctx.shadowColor = colors.mainShadow;
         ctx.shadowBlur = 30;
         ctx.beginPath();
         ctx.moveTo(this.segments[0].x, this.segments[0].y);
@@ -91,7 +111,7 @@ export function ThunderCursor() {
           ctx.lineTo(this.segments[i].x, this.segments[i].y);
         }
         ctx.stroke();
-        ctx.strokeStyle = '#FFFFFF';
+        ctx.strokeStyle = colors.innerStroke;
         ctx.lineWidth = 1.5;
         ctx.shadowBlur = 10;
         ctx.stroke();
@@ -134,9 +154,9 @@ export function ThunderCursor() {
         if (!ctx) return;
         ctx.save();
         ctx.globalAlpha = this.alpha;
-        ctx.strokeStyle = '#FFD700';
+        ctx.strokeStyle = colors.branchStroke;
         ctx.lineWidth = 1;
-        ctx.shadowColor = '#FFFF00';
+        ctx.shadowColor = colors.branchShadow;
         ctx.shadowBlur = 10;
         ctx.beginPath();
         ctx.moveTo(this.segments[0].x, this.segments[0].y);
@@ -161,7 +181,7 @@ export function ThunderCursor() {
 
     function animate() {
       if (!ctx) return;
-      ctx.fillStyle = 'rgba(12, 10, 26, 0.25)';
+      ctx.fillStyle = colors.bg;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (let i = bolts.length - 1; i >= 0; i--) {
         const bolt = bolts[i];
@@ -180,11 +200,7 @@ export function ThunderCursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [theme]);
-
-  if (theme !== 'dark') {
-    return null;
-  }
+  }, [resolvedTheme]);
 
   return (
     <canvas id="thunder-canvas" ref={canvasRef}></canvas>

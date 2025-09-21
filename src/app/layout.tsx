@@ -33,7 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThunderCursor />
-          <div className="relative z-10">
+          <div className="relative z-10 bg-background/50">
             <Header />
             <main className="pb-24">
               <PageTransition>
