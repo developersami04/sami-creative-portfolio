@@ -4,8 +4,7 @@
 import { StudioHero } from "@/components/studio/StudioHero";
 import { Container } from "@/components/shared/Container";
 import { StudioGallery } from "@/components/studio/StudioGallery";
-import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
-import placeholderImages from "@/lib/placeholder-images.json";
+import { studioInfo } from "@/lib/data/studio/studio";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 
@@ -14,16 +13,9 @@ export default function StudioPage() {
   const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
   useEffect(() => {
-    if (heroBackgrounds.studio && heroBackgrounds.studio.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.studio.length);
-      const imageKey = heroBackgrounds.studio[randomIndex];
-      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
-      if (imageData) {
-        setHeroBg({
-          imageUrl: imageData.url,
-          imageHint: imageData.hint
-        });
-      }
+    if (studioInfo.heroImages && studioInfo.heroImages.length > 0) {
+      const randomIndex = Math.floor(Math.random() * studioInfo.heroImages.length);
+      setHeroBg(studioInfo.heroImages[randomIndex]);
     }
   }, []);
 

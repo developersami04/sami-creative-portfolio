@@ -5,8 +5,6 @@ import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { SkillsList } from "@/components/skills/SkillsList";
 import { skillsPageData } from "@/lib/data/skills/skills";
-import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
-import placeholderImages from "@/lib/placeholder-images.json";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 
@@ -14,16 +12,9 @@ export default function SkillsPage() {
   const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
   useEffect(() => {
-    if (heroBackgrounds.skills && heroBackgrounds.skills.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.skills.length);
-      const imageKey = heroBackgrounds.skills[randomIndex];
-      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
-      if (imageData) {
-        setHeroBg({
-          imageUrl: imageData.url,
-          imageHint: imageData.hint
-        });
-      }
+    if (skillsPageData.heroImages && skillsPageData.heroImages.length > 0) {
+      const randomIndex = Math.floor(Math.random() * skillsPageData.heroImages.length);
+      setHeroBg(skillsPageData.heroImages[randomIndex]);
     }
   }, []);
 
