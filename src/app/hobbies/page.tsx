@@ -5,8 +5,6 @@ import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { HobbiesList } from "@/components/hobbies/HobbiesList";
 import { hobbiesPageData } from "@/lib/data/hobbies/hobbies";
-import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
-import placeholderImages from "@/lib/placeholder-images.json";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 
@@ -14,16 +12,9 @@ export default function HobbiesPage() {
   const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
   useEffect(() => {
-    if (heroBackgrounds.hobbies && heroBackgrounds.hobbies.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.hobbies.length);
-      const imageKey = heroBackgrounds.hobbies[randomIndex];
-      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
-      if (imageData) {
-        setHeroBg({
-          imageUrl: imageData.url,
-          imageHint: imageData.hint
-        });
-      }
+    if (hobbiesPageData.heroImages && hobbiesPageData.heroImages.length > 0) {
+      const randomIndex = Math.floor(Math.random() * hobbiesPageData.heroImages.length);
+      setHeroBg(hobbiesPageData.heroImages[randomIndex]);
     }
   }, []);
 

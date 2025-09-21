@@ -5,8 +5,6 @@ import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { projectsPageData } from "@/lib/data/projects/work";
 import { ProjectList } from "@/components/projects/ProjectList";
-import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
-import placeholderImages from "@/lib/placeholder-images.json";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 
@@ -14,16 +12,9 @@ export default function ProjectsPage() {
   const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
   useEffect(() => {
-    if (heroBackgrounds.projects && heroBackgrounds.projects.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.projects.length);
-      const imageKey = heroBackgrounds.projects[randomIndex];
-      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
-      if (imageData) {
-        setHeroBg({
-          imageUrl: imageData.url,
-          imageHint: imageData.hint
-        });
-      }
+    if (projectsPageData.heroImages && projectsPageData.heroImages.length > 0) {
+      const randomIndex = Math.floor(Math.random() * projectsPageData.heroImages.length);
+      setHeroBg(projectsPageData.heroImages[randomIndex]);
     }
   }, []);
 

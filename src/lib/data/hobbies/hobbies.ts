@@ -1,4 +1,4 @@
-import type { Hobby } from "@/lib/types";
+import type { Hobby, HeroImage } from "@/lib/types";
 
 export const hobbiesPageData = {
     title: "My Hobbies",
@@ -6,7 +6,19 @@ export const hobbiesPageData = {
     list: {
         title: "What I Do For Fun",
         description: "A glimpse into my passions outside of the digital world."
-    }
+    },
+    heroImages: [
+        { "imageUrl": "https://picsum.photos/seed/401/1200/600", "imageHint": "hiking sunset" },
+        { "imageUrl": "https://picsum.photos/seed/405/1200/600", "imageHint": "painting canvas" },
+        { "imageUrl": "https://picsum.photos/seed/406/1200/600", "imageHint": "reading book" },
+        { "imageUrl": "https://picsum.photos/seed/407/1200/600", "imageHint": "playing guitar" },
+        { "imageUrl": "https://picsum.photos/seed/408/1200/600", "imageHint": "cooking food" },
+        { "imageUrl": "https://picsum.photos/seed/409/1200/600", "imageHint": "gardening plants" },
+        { "imageUrl": "https://picsum.photos/seed/410/1200/600", "imageHint": "video games" },
+        { "imageUrl": "https://picsum.photos/seed/411/1200/600", "imageHint": "person meditating" },
+        { "imageUrl": "https://picsum.photos/seed/412/1200/600", "imageHint": "pottery wheel" },
+        { "imageUrl": "https://picsum.photos/seed/413/1200/600", "imageHint": "writing journal" }
+    ] as HeroImage[]
 };
 
 export const hobbiesData: Hobby[] = [
