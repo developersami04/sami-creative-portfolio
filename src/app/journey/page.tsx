@@ -1,22 +1,40 @@
+
+'use client';
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { journeyPageData } from "@/lib/data/journey/journey";
 import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
+import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
+import placeholderImages from "@/lib/placeholder-images.json";
+import { useEffect, useState } from "react";
+import type { HeroImage } from "@/lib/types";
 
-export const metadata = {
-  title: "My Journey | PortfolioFlow",
-  description: "A timeline of my professional career and key milestones.",
-};
+export default function JourneyPage() {
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
-const JourneyPage = () => {
+  useEffect(() => {
+    if (heroBackgrounds.journey && heroBackgrounds.journey.length > 0) {
+      const randomIndex = Math.floor(Math.random() * heroBackgrounds.journey.length);
+      const imageKey = heroBackgrounds.journey[randomIndex];
+      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
+      if (imageData) {
+        setHeroBg({
+          imageUrl: imageData.url,
+          imageHint: imageData.hint
+        });
+      }
+    }
+  }, []);
+
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {journeyPageData.heroImageUrl && (
+        {heroBg && (
           <Image
-            src={journeyPageData.heroImageUrl}
+            src={heroBg.imageUrl}
             alt={journeyPageData.title}
-            data-ai-hint={journeyPageData.heroImageHint}
+            data-ai-hint={heroBg.imageHint}
             fill
             className="object-cover"
             priority
@@ -45,5 +63,3 @@ const JourneyPage = () => {
     </>
   );
 };
-
-export default JourneyPage;

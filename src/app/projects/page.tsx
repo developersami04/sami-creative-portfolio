@@ -1,22 +1,40 @@
+
+'use client';
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { projectsPageData } from "@/lib/data/projects/work";
 import { ProjectList } from "@/components/projects/ProjectList";
+import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
+import placeholderImages from "@/lib/placeholder-images.json";
+import { useEffect, useState } from "react";
+import type { HeroImage } from "@/lib/types";
 
-export const metadata = {
-  title: "My Projects | PortfolioFlow",
-  description: "A showcase of my projects and work.",
-};
+export default function ProjectsPage() {
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
-const ProjectsPage = () => {
+  useEffect(() => {
+    if (heroBackgrounds.projects && heroBackgrounds.projects.length > 0) {
+      const randomIndex = Math.floor(Math.random() * heroBackgrounds.projects.length);
+      const imageKey = heroBackgrounds.projects[randomIndex];
+      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
+      if (imageData) {
+        setHeroBg({
+          imageUrl: imageData.url,
+          imageHint: imageData.hint
+        });
+      }
+    }
+  }, []);
+
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {projectsPageData.heroImageUrl && (
+        {heroBg && (
           <Image
-            src={projectsPageData.heroImageUrl}
+            src={heroBg.imageUrl}
             alt={projectsPageData.title}
-            data-ai-hint={projectsPageData.heroImageHint}
+            data-ai-hint={heroBg.imageHint}
             fill
             className="object-cover"
             priority
@@ -37,5 +55,3 @@ const ProjectsPage = () => {
     </>
   );
 };
-
-export default ProjectsPage;

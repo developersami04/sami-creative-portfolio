@@ -4,8 +4,6 @@ import type { Skill } from "@/lib/types";
 export const skillsPageData = {
     title: "My Skills",
     description: "A showcase of my technical skills and expertise in action.",
-    heroImageUrl: "https://picsum.photos/seed/801/1200/600",
-    heroImageHint: "modern tech",
     list: {
         title: "Technical Proficiency",
         description: "Here's a breakdown of my skills, their proficiency, and where I've used them."

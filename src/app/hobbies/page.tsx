@@ -1,22 +1,40 @@
+
+'use client';
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { HobbiesList } from "@/components/hobbies/HobbiesList";
 import { hobbiesPageData } from "@/lib/data/hobbies/hobbies";
+import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
+import placeholderImages from "@/lib/placeholder-images.json";
+import { useEffect, useState } from "react";
+import type { HeroImage } from "@/lib/types";
 
-export const metadata = {
-  title: "My Hobbies | PortfolioFlow",
-  description: "A look into my personal interests and hobbies outside of work.",
-};
+export default function HobbiesPage() {
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
-const HobbiesPage = () => {
+  useEffect(() => {
+    if (heroBackgrounds.hobbies && heroBackgrounds.hobbies.length > 0) {
+      const randomIndex = Math.floor(Math.random() * heroBackgrounds.hobbies.length);
+      const imageKey = heroBackgrounds.hobbies[randomIndex];
+      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
+      if (imageData) {
+        setHeroBg({
+          imageUrl: imageData.url,
+          imageHint: imageData.hint
+        });
+      }
+    }
+  }, []);
+
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {hobbiesPageData.heroImageUrl && (
+        {heroBg && (
           <Image
-            src={hobbiesPageData.heroImageUrl}
+            src={heroBg.imageUrl}
             alt={hobbiesPageData.title}
-            data-ai-hint={hobbiesPageData.heroImageHint}
+            data-ai-hint={heroBg.imageHint}
             fill
             className="object-cover"
             priority
@@ -38,5 +56,3 @@ const HobbiesPage = () => {
     </>
   );
 };
-
-export default HobbiesPage;

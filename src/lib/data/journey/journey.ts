@@ -4,8 +4,6 @@ import { Award, Briefcase, GraduationCap, Trophy, Cpu } from "lucide-react";
 export const journeyPageData = {
     title: "My Professional Journey",
     description: "A timeline of my career, highlighting key roles, projects, and learning experiences that have shaped my skills and expertise.",
-    heroImageUrl: "https://picsum.photos/seed/901/1200/600",
-    heroImageHint: "winding road",
     timeline: {
         title: "Career Timeline",
         description: "Follow my path from education to my most recent professional achievements."

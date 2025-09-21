@@ -1,8 +1,10 @@
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { studioInfo } from "@/lib/data/studio/studio";
+import type { HeroImage } from "@/lib/types";
 
-export function StudioHero() {
+export function StudioHero({ heroBg }: { heroBg: HeroImage | null }) {
   return (
     <div className="relative overflow-hidden bg-primary">
       <div className="animated-aurora" />
@@ -16,11 +18,11 @@ export function StudioHero() {
           </p>
         </div>
         <div className="relative aspect-video rounded-lg shadow-2xl">
-          {studioInfo.heroImageUrl && (
+          {heroBg && (
             <Image
-              src={studioInfo.heroImageUrl}
+              src={heroBg.imageUrl}
               alt={studioInfo.title}
-              data-ai-hint={studioInfo.heroImageHint}
+              data-ai-hint={heroBg.imageHint}
               fill
               className="rounded-lg object-cover"
             />

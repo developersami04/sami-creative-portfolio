@@ -3,8 +3,6 @@ import type { Project } from "@/lib/types";
 export const projectsPageData = {
   title: "My Projects",
   description: "Here is a collection of my work, demonstrating my skills in design and development.",
-  heroImageUrl: "https://picsum.photos/seed/501/1200/600",
-  heroImageHint: "coding workspace"
 };
 
 export const workSectionData = {

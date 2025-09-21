@@ -1,22 +1,40 @@
+
+'use client';
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { SkillsList } from "@/components/skills/SkillsList";
 import { skillsPageData } from "@/lib/data/skills/skills";
+import { heroBackgrounds } from "@/lib/data/heros/hero-backgrounds";
+import placeholderImages from "@/lib/placeholder-images.json";
+import { useEffect, useState } from "react";
+import type { HeroImage } from "@/lib/types";
 
-export const metadata = {
-  title: "My Skills | PortfolioFlow",
-  description: "A showcase of my technical skills and expertise.",
-};
+export default function SkillsPage() {
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
-const SkillsPage = () => {
+  useEffect(() => {
+    if (heroBackgrounds.skills && heroBackgrounds.skills.length > 0) {
+      const randomIndex = Math.floor(Math.random() * heroBackgrounds.skills.length);
+      const imageKey = heroBackgrounds.skills[randomIndex];
+      const imageData = placeholderImages[imageKey as keyof typeof placeholderImages];
+      if (imageData) {
+        setHeroBg({
+          imageUrl: imageData.url,
+          imageHint: imageData.hint
+        });
+      }
+    }
+  }, []);
+
   return (
     <>
       <div className="relative h-[40vh] min-h-[300px] w-full">
-        {skillsPageData.heroImageUrl && (
+        {heroBg && (
           <Image
-            src={skillsPageData.heroImageUrl}
+            src={heroBg.imageUrl}
             alt={skillsPageData.title}
-            data-ai-hint={skillsPageData.heroImageHint}
+            data-ai-hint={heroBg.imageHint}
             fill
             className="object-cover"
             priority
@@ -37,5 +55,3 @@ const SkillsPage = () => {
     </>
   );
 };
-
-export default SkillsPage;

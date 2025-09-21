@@ -3,8 +3,6 @@ import type { StudioItem } from "@/lib/types";
 export const studioInfo = {
     title: "Welcome to My Studio",
     description: "This is my creative playground. A space for photography, videography, and other artistic works. Here, I blend passion with skill to create unique digital experiences.",
-    heroImageUrl: "https://picsum.photos/seed/201/1200/800",
-    heroImageHint: "creative studio"
 };
 
 export const studioData: StudioItem[] = [
