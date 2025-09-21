@@ -4,8 +4,7 @@
 import { StudioHero } from "@/components/studio/StudioHero";
 import { Container } from "@/components/shared/Container";
 import { StudioGallery } from "@/components/studio/StudioGallery";
-import { studioInfo } from "@/lib/data/studio/studio";
-import { heroBackgrounds } from "@/lib/data/hero/hero";
+import { heroBackgrounds } from "@/lib/data/heros/hero";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 

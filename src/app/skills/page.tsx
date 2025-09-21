@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { SkillsList } from "@/components/skills/SkillsList";
 import { skillsPageData } from "@/lib/data/skills/skills";
-import { heroBackgrounds } from "@/lib/data/hero/hero";
+import { heroBackgrounds } from "@/lib/data/heros/hero";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 

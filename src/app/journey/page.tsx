@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { journeyPageData } from "@/lib/data/journey/journey";
-import { heroBackgrounds } from "@/lib/data/hero/hero";
+import { heroBackgrounds } from "@/lib/data/heros/hero";
 import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";

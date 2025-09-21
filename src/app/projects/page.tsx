@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { projectsPageData } from "@/lib/data/projects/work";
-import { heroBackgrounds } from "@/lib/data/hero/hero";
+import { heroBackgrounds } from "@/lib/data/heros/hero";
 import { ProjectList } from "@/components/projects/ProjectList";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
