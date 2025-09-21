@@ -28,8 +28,8 @@ export function ThunderCursor() {
       },
       light: {
         bg: 'rgba(230, 240, 255, 0.25)',
-        mainStroke: '#87CEFA', // LightSkyBlue
-        mainShadow: '#00BFFF', // DeepSkyBlue
+        mainStroke: '#00BFFF', // DeepSkyBlue
+        mainShadow: '#1E90FF', // DodgerBlue
         innerStroke: '#FFFFFF',
         branchStroke: '#87CEEB', // SkyBlue
         branchShadow: '#4682B4', // SteelBlue
