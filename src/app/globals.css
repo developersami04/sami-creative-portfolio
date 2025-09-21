@@ -118,6 +118,9 @@
      radial-gradient(ellipse at 50% 50%, hsl(var(--primary) / 0.2), transparent 70%);
     background-size: 400% 400%;
   }
+  .animate-glow {
+    animation: glow 4s ease-in-out infinite;
+  }
 }
 
 @keyframes aurora {
@@ -126,5 +129,14 @@
   }
   to {
     background-position: 350% 50%, 350% 50%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px 5px hsl(var(--accent) / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px 15px hsl(var(--accent) / 0.4);
   }
 }
