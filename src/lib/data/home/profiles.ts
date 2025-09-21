@@ -9,7 +9,7 @@ export const profilesData: Profile[] = [
   {
     id: 1,
     name: "GitHub",
-    url: "https://github.com",
+    url: "https://github.com/developersami04",
     icon: "github",
   },
   {
@@ -21,7 +21,7 @@ export const profilesData: Profile[] = [
   {
     id: 3,
     name: "Twitter",
-    url: "https://twitter.com",
+    url: "https://x.com/DevSami04",
     icon: "twitter",
   },
 ];

@@ -46,7 +46,7 @@ export type Skill = {
   name: string;
   proficiency: number;
   description: string;
-  type: "Frontend" | "Backend" | "Design" | "Tools";
+  type: "Language" | "Frontend" | "Backend" | "Database" | "Design" | "Tools";
 };
 
 export type Journey = {
