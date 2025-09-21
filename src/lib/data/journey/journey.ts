@@ -1,4 +1,4 @@
-import type { Journey, HeroImage } from "@/lib/types";
+import type { Journey } from "@/lib/types";
 import { Award, Briefcase, GraduationCap, Trophy, Cpu } from "lucide-react";
 
 export const journeyPageData = {
@@ -7,12 +7,7 @@ export const journeyPageData = {
     timeline: {
         title: "Career Timeline",
         description: "Follow my path from education to my most recent professional achievements."
-    },
-    heroImages: [
-        { "imageUrl": "https://picsum.photos/seed/901/1200/600", "imageHint": "winding road" },
-        { "imageUrl": "https://picsum.photos/seed/902/1200/600", "imageHint": "mountain path" },
-        { "imageUrl": "https://picsum.photos/seed/903/1200/600", "imageHint": "old map" },
-    ] as HeroImage[]
+    }
 };
 
 export const journeyData: Journey[] = [

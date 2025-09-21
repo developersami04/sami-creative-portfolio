@@ -1,20 +1,8 @@
-import type { Project, HeroImage } from "@/lib/types";
+import type { Project } from "@/lib/types";
 
 export const projectsPageData = {
   title: "My Projects",
-  description: "Here is a collection of my work, demonstrating my skills in design and development.",
-  heroImages: [
-    { "imageUrl": "https://picsum.photos/seed/501/1200/600", "imageHint": "coding workspace" },
-    { "imageUrl": "https://picsum.photos/seed/502/1200/600", "imageHint": "blueprint design" },
-    { "imageUrl": "https://picsum.photos/seed/503/1200/600", "imageHint": "server room" },
-    { "imageUrl": "https://picsum.photos/seed/504/1200/600", "imageHint": "tech diagram" },
-    { "imageUrl": "https://picsum.photos/seed/505/1200/600", "imageHint": "glowing code" },
-    { "imageUrl": "https://picsum.photos/seed/506/1200/600", "imageHint": "data analytics" },
-    { "imageUrl": "https://picsum.photos/seed/507/1200/600", "imageHint": "abstract network" },
-    { "imageUrl": "https://picsum.photos/seed/508/1200/600", "imageHint": "developer desk" },
-    { "imageUrl": "https://picsum.photos/seed/509/1200/600", "imageHint": "cloud infrastructure" },
-    { "imageUrl": "https://picsum.photos/seed/510/1200/600", "imageHint": "futuristic UI" }
-  ] as HeroImage[]
+  description: "Here is a collection of my work, demonstrating my skills in design and development."
 };
 
 export const workSectionData = {

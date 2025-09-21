@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { journeyPageData } from "@/lib/data/journey/journey";
+import { heroBackgrounds } from "@/lib/data/hero/hero";
 import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
 import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
@@ -12,9 +13,9 @@ export default function JourneyPage() {
   const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
 
   useEffect(() => {
-    if (journeyPageData.heroImages && journeyPageData.heroImages.length > 0) {
-      const randomIndex = Math.floor(Math.random() * journeyPageData.heroImages.length);
-      setHeroBg(journeyPageData.heroImages[randomIndex]);
+    if (heroBackgrounds.journey && heroBackgrounds.journey.length > 0) {
+      const randomIndex = Math.floor(Math.random() * heroBackgrounds.journey.length);
+      setHeroBg(heroBackgrounds.journey[randomIndex]);
     }
   }, []);
 

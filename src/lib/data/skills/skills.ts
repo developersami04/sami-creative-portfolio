@@ -1,5 +1,5 @@
 
-import type { Skill, HeroImage } from "@/lib/types";
+import type { Skill } from "@/lib/types";
 
 export const skillsPageData = {
     title: "My Skills",
@@ -7,12 +7,7 @@ export const skillsPageData = {
     list: {
         title: "Technical Proficiency",
         description: "Here's a breakdown of my skills, their proficiency, and where I've used them."
-    },
-    heroImages: [
-        { "imageUrl": "https://picsum.photos/seed/801/1200/600", "imageHint": "modern tech" },
-        { "imageUrl": "https://picsum.photos/seed/802/1200/600", "imageHint": "glowing code" },
-        { "imageUrl": "https://picsum.photos/seed/803/1200/600", "imageHint": "data analytics" },
-    ] as HeroImage[]
+    }
 };
 
 export const skillsData: Skill[] = [

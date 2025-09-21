@@ -1,13 +1,8 @@
-import type { StudioItem, HeroImage } from "@/lib/types";
+import type { StudioItem } from "@/lib/types";
 
 export const studioInfo = {
     title: "Welcome to My Studio",
-    description: "This is my creative playground. A space for photography, videography, and other artistic works. Here, I blend passion with skill to create unique digital experiences.",
-    heroImages: [
-        { "imageUrl": "https://picsum.photos/seed/201/1200/800", "imageHint": "creative studio" },
-        { "imageUrl": "https://picsum.photos/seed/202/1200/800", "imageHint": "camera lens" },
-        { "imageUrl": "https://picsum.photos/seed/203/1200/800", "imageHint": "art gallery" }
-    ] as HeroImage[]
+    description: "This is my creative playground. A space for photography, videography, and other artistic works. Here, I blend passion with skill to create unique digital experiences."
 };
 
 export const studioData: StudioItem[] = [
