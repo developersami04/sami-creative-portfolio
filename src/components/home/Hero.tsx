@@ -78,7 +78,7 @@ export function Hero() {
                   alt={aboutData.name}
                   data-ai-hint={profilePic.imageHint}
                   fill
-                  className="object-cover mix-blend-plus-lighter"
+                  className="object-cover"
                   priority
                 />
               </div>
