@@ -68,7 +68,7 @@ export function Hero() {
           </div>
 
           {/* Image Content */}
-          <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
+          <div className="relative mx-auto w-96 h-96 lg:w-[32rem] lg:h-[32rem]">
             <div className="absolute inset-0 -rotate-3 transform rounded-2xl bg-secondary/50 shadow-2xl shadow-accent/20 transition-transform duration-3000 hover:rotate-0 animate-spin-slow"></div>
             <div className="absolute inset-0 rotate-3 transform rounded-2xl bg-accent/30 shadow-2xl shadow-primary/20 transition-transform duration-3000 hover:rotate-0 animate-spin-slower"></div>
             {profilePic && (

@@ -16,6 +16,8 @@ export const aboutData = {
         { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758393187/hero-section-05_s6lozl.png", imageHint: "Developer Sami" },
         { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758393187/hero-section-01_cjnjtl.png", imageHint: "Creative Sami" },
         { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758393187/hero-section-04_bkn0yv.png", imageHint: "Sami on Fire" },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758450362/hero-section-07_rmzezl.png", imageHint: "Sami on Fire" },
+
     ] as HeroImage[],
     heroBackgrounds: [
         { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-02_psx2lz.jpg", imageHint: "abstract moon background" },
