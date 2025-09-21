@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -77,7 +78,7 @@ export function Hero() {
                   alt={aboutData.name}
                   data-ai-hint={profilePic.imageHint}
                   fill
-                  className="object-cover"
+                  className="object-cover mix-blend-plus-lighter"
                   priority
                 />
               </div>
