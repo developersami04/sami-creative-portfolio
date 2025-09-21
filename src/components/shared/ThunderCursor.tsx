@@ -43,13 +43,14 @@ export function ThunderCursor() {
     let lastMousePos: { x: number, y: number } | null = null;
     let animationFrameId: number;
 
-    function resizeCanvas() {
+    function resizeCanvas(canvas: HTMLCanvasElement) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    const handleResize = () => resizeCanvas(canvas);
+    window.addEventListener('resize', handleResize);
+    resizeCanvas(canvas);
 
     class LightningBolt {
       startX: number;
@@ -180,7 +181,7 @@ export function ThunderCursor() {
     window.addEventListener('mousemove', handleMouseMove);
 
     function animate() {
-      if (!ctx) return;
+      if (!ctx || !canvas) return;
       ctx.fillStyle = colors.bg;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (let i = bolts.length - 1; i >= 0; i--) {
@@ -196,7 +197,7 @@ export function ThunderCursor() {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
