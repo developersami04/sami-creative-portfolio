@@ -18,9 +18,11 @@ export const aboutData = {
         { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758393187/hero-section-04_bkn0yv.jpg", imageHint: "Sami on Fire" },
     ] as HeroImage[],
     heroBackgrounds: [
-        { imageUrl: "https://picsum.photos/seed/702/1920/1080", imageHint: "abstract tech background" },
-        { imageUrl: "https://picsum.photos/seed/703/1920/1080", imageHint: "glowing data stream" },
-        { imageUrl: "https://picsum.photos/seed/704/1920/1080", imageHint: "neural network visualization" },
-        { imageUrl: "https://picsum.photos/seed/705/1920/1080", imageHint: "modern coding environment" },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-02_psx2lz.jpg", imageHint: "abstract moon background" },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-06_hko8os.jpg", imageHint: "zenitsu thunder stream" },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-01_cu3dfs.jpg", imageHint: "tanjiro dragon background" },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-03_ukvotr.jpg", imageHint: "zenitsu thunder environment" },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-04_luqnzv.jpg", imageHint: "zenitsu lighting katana " },
+        { imageUrl: "https://res.cloudinary.com/dcfurdz3u/image/upload/v1758438503/background-images-05_pdwyrr.jpg", imageHint: "tanjiro fall in infinity castel" },
     ] as HeroImage[],
 };
