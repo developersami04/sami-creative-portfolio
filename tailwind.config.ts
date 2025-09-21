@@ -104,14 +104,6 @@ export default {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(-360deg)' },
         },
-        glow: {
-          '0%, 100%': {
-            boxShadow: '0 0 20px 5px hsl(var(--accent) / 0.2)',
-          },
-          '50%': {
-            boxShadow: '0 0 40px 15px hsl(var(--accent) / 0.4)',
-          },
-        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -119,7 +111,6 @@ export default {
         aurora: 'aurora 20s linear infinite',
         'spin-slow': 'spin-slow 20s linear infinite',
         'spin-slower': 'spin-slower 30s linear infinite',
-        glow: 'glow 4s ease-in-out infinite',
       },
     },
   },
