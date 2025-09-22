@@ -63,7 +63,7 @@ const CollaboratorsPage = () => {
             </p>
           </div>
           
-          <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden">
+          <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden rounded-3xl">
             <Marquee pauseOnHover vertical className="[--duration:20s]">
               {firstRow.map((collaborator, i) => (
                 <CollaboratorImage key={`p1-${i}`} {...collaborator} />
