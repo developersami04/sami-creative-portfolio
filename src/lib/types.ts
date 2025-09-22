@@ -62,7 +62,7 @@ export type StudioItem = {
     id: number;
     title: string;
     description: string;
-    category: "Photography" | "Videography" | "Creative Arts";
+    category: "Photography" | "Videography" | "Creative Arts" | "AI Generated";
     imageUrl: string;
     imageHint: string;
 };

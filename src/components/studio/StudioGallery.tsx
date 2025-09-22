@@ -1,36 +1,40 @@
+
 "use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import { studioData } from "@/lib/placeholder-data";
+import aiGeneratedImages from "@/lib/ai-generated-images.json";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 
-const categories = ["All", "Photography", "Videography", "Creative Arts"];
+const categories = ["All", "Photography", "Videography", "Creative Arts", "AI Generated"];
 
 export function StudioGallery() {
   const [activeTab, setActiveTab] = useState("All");
   const { ref, inView } = useScrollAnimation();
 
+  const allItems = [...studioData, ...aiGeneratedImages];
+
   const filteredItems =
     activeTab === "All"
-      ? studioData
-      : studioData.filter((item) => item.category === activeTab);
+      ? allItems
+      : allItems.filter((item) => item.category === activeTab);
 
   return (
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-700",
+        "transition-all duration-700 pt-16 md:pt-24",
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       )}
     >
       <Tabs defaultValue="All" onValueChange={setActiveTab} className="w-full">
         <div className="flex justify-center">
-          <TabsList className="mb-12 grid w-full max-w-lg grid-cols-4">
+          <TabsList className="mb-12 grid w-full max-w-lg grid-cols-5">
             {categories.map((category) => (
               <TabsTrigger key={category} value={category}>
                 {category}
