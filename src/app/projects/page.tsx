@@ -1,3 +1,7 @@
+
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { projectsPageData } from "@/lib/placeholder-data";
@@ -6,8 +10,12 @@ import { ProjectList } from "@/components/projects/ProjectList";
 import type { HeroImage } from "@/lib/types";
 
 export default function ProjectsPage() {
-  const heroBackgrounds = heroImages.projects as HeroImage[];
-  const heroBg = heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)];
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
+
+  useEffect(() => {
+    const heroBackgrounds = heroImages.projects as HeroImage[];
+    setHeroBg(heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)]);
+  }, []);
 
   return (
     <>

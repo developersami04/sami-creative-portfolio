@@ -1,3 +1,7 @@
+
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { homePageData } from "@/lib/placeholder-data";
@@ -8,11 +12,16 @@ import { ArrowDown } from "lucide-react";
 import type { HeroImage } from "@/lib/types";
 
 export function Hero() {
-  const heroBackgrounds = heroImages.home.backgrounds as HeroImage[];
-  const profilePictures = heroImages.home.profilePictures as HeroImage[];
+  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
+  const [profilePic, setProfilePic] = useState<HeroImage | null>(null);
 
-  const heroBg = heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)];
-  const profilePic = profilePictures[Math.floor(Math.random() * profilePictures.length)];
+  useEffect(() => {
+    const heroBackgrounds = heroImages.home.backgrounds as HeroImage[];
+    const profilePictures = heroImages.home.profilePictures as HeroImage[];
+    
+    setHeroBg(heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)]);
+    setProfilePic(profilePictures[Math.floor(Math.random() * profilePictures.length)]);
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-background">
