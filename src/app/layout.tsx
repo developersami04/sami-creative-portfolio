@@ -7,6 +7,7 @@ import { BottomNav } from '@/components/shared/BottomNav';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
 import { PageTransition } from '@/components/shared/PageTransition';
 import { ThunderCursor } from '@/components/shared/ThunderCursor';
+import { MusicPlayer } from '@/components/shared/MusicPlayer';
 
 export const metadata: Metadata = {
   title: 'Sami | PortfolioFlow | A Creative Portfolio',
@@ -41,6 +42,7 @@ export default function RootLayout({
               </PageTransition>
             </main>
             <Footer />
+            <MusicPlayer />
             <BottomNav />
           </div>
           <Toaster />
