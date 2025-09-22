@@ -13,63 +13,61 @@ export function MusicPlayer() {
   const [currentTrack, setCurrentTrack] = useState<MusicTrack | null>(null);
 
   useEffect(() => {
-    // On mount, select a random track
-    setCurrentTrack(musicTracks[Math.floor(Math.random() * musicTracks.length)]);
+    // 1. Select a random track on mount
+    const randomTrack = musicTracks[Math.floor(Math.random() * musicTracks.length)];
+    setCurrentTrack(randomTrack);
     
-    // Set up the audio element once it's available
     const audio = audioRef.current;
     if (!audio) return;
 
+    // 2. Assign the source immediately
+    audio.src = randomTrack.url;
     audio.volume = 0.3;
     audio.loop = true;
 
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
 
+    // 3. Logic to run once the audio is ready to play
+    const attemptPlayOnLoad = () => {
+      const userPreference = localStorage.getItem("musicPlayerMuted");
+      if (userPreference !== 'true') {
+        audio.play().catch(e => {
+          console.log("Autoplay was prevented. User interaction needed.");
+          setIsPlaying(false);
+        });
+      }
+    };
+
+    // 4. Add all event listeners
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
+    audio.addEventListener('canplay', attemptPlayOnLoad); // <-- This is the key fix
 
+    // 5. Cleanup function
     return () => {
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
+      audio.removeEventListener('canplay', attemptPlayOnLoad);
     };
   }, []);
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio && currentTrack) {
-      audio.src = currentTrack.url;
-      
-      const userPreference = localStorage.getItem("musicPlayerMuted");
-      if (userPreference !== 'true') {
-        // Attempt to play, but catch error if browser blocks it.
-        // This usually requires user interaction on the page first.
-        audio.play().catch(e => {
-          console.log("Autoplay was prevented by the browser. User interaction is required.");
-          setIsPlaying(false);
-        });
-      } else {
-        setIsPlaying(false);
-      }
-    }
-  }, [currentTrack]);
-
-  const togglePlayPause = async () => {
+  const togglePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
     
-    try {
-      if (isPlaying) {
-        audio.pause();
-        localStorage.setItem("musicPlayerMuted", "true");
-      } else {
-        await audio.play();
-        localStorage.setItem("musicPlayerMuted", "false");
+    if (isPlaying) {
+      audio.pause();
+      localStorage.setItem("musicPlayerMuted", "true");
+    } else {
+      // Ensure src is set before playing, especially on first interaction
+      if (!audio.src && currentTrack) {
+        audio.src = currentTrack.url;
       }
-      // The state will be updated by the 'play'/'pause' event listeners
-    } catch (error) {
-      console.error("Audio playback failed:", error);
+      audio.play().catch(e => console.error("Playback failed:", e));
+      localStorage.setItem("musicPlayerMuted", "false");
     }
+    // State is updated via event listeners
   };
 
   return (
