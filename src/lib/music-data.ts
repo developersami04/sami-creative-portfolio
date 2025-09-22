@@ -7,23 +7,23 @@ export type MusicTrack = {
 
 export const musicTracks: MusicTrack[] = [
   {
-    url: "https://www.chosic.com/wp-content/uploads/2021/07/purrple-cat-equinox.mp3",
-    title: "Equinox",
-    artist: "Purrple Cat",
+    url: "https://res.cloudinary.com/content-storage/video/upload/v1756382941/mixkit-light-rain-loop-2393_jsitx0.wav",
+    title: "Light Rain",
+    artist: "Mixkit",
   },
   {
-    url: "https://www.chosic.com/wp-content/uploads/2022/01/Missing-You.mp3",
-    title: "Missing You",
-    artist: "Purrple Cat",
+    url: "https://res.cloudinary.com/content-storage/video/upload/v1756382941/mixkit-light-rain-loop-2393_jsitx0.wav",
+    title: "Rainy Mood",
+    artist: "Mixkit",
   },
   {
-    url: "https://www.chosic.com/wp-content/uploads/2021/08/And-So-It-Begins-Inspired-By-Crush-Sometimes.mp3",
-    title: "And So It Begins",
-    artist: "Artificial.Music",
+    url: "https://res.cloudinary.com/content-storage/video/upload/v1756382941/mixkit-light-rain-loop-2393_jsitx0.wav",
+    title: "Gentle Showers",
+    artist: "Mixkit",
   },
   {
-    url: "https://www.chosic.com/wp-content/uploads/2022/03/Sweet-Hope.mp3",
-    title: "Sweet Hope",
-    artist: "Purrple Cat",
+    url: "https://res.cloudinary.com/content-storage/video/upload/v1756382941/mixkit-light-rain-loop-2393_jsitx0.wav",
+    title: "Peaceful Drizzle",
+    artist: "Mixkit",
   },
 ];
