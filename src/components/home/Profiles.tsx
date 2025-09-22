@@ -6,7 +6,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { profilesData, profilesInfo } from "@/lib/data/home/profiles";
+import { profilesData, profilesPageData } from "@/lib/placeholder-data";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 
@@ -30,10 +30,10 @@ export function Profiles() {
       >
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {profilesInfo.title}
+            {profilesPageData.title}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-            {profilesInfo.description}
+            {profilesPageData.description}
           </p>
         </div>
 

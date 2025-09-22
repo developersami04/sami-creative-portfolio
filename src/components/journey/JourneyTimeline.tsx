@@ -1,6 +1,6 @@
 "use client";
 
-import { journeyData } from "@/lib/data/journey/journey";
+import { journeyData } from "@/lib/placeholder-data";
 import {
   Card,
   CardContent,

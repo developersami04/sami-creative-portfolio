@@ -1,23 +1,13 @@
-
-'use client';
-
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { HobbiesList } from "@/components/hobbies/HobbiesList";
-import { hobbiesPageData } from "@/lib/data/hobbies/hobbies";
-import { heroBackgrounds } from "@/lib/data/heros/hero";
-import { useEffect, useState } from "react";
+import { hobbiesPageData } from "@/lib/placeholder-data";
+import heroImages from "@/lib/placeholder-images.json";
 import type { HeroImage } from "@/lib/types";
 
 export default function HobbiesPage() {
-  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
-
-  useEffect(() => {
-    if (heroBackgrounds.hobbies && heroBackgrounds.hobbies.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.hobbies.length);
-      setHeroBg(heroBackgrounds.hobbies[randomIndex]);
-    }
-  }, []);
+  const heroBackgrounds = heroImages.hobbies as HeroImage[];
+  const heroBg = heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)];
 
   return (
     <>

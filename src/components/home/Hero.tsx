@@ -1,29 +1,18 @@
-
-"use client";
-
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { aboutData } from "@/lib/data/home/about";
+import { homePageData } from "@/lib/placeholder-data";
+import heroImages from "@/lib/placeholder-images.json";
 import { Container } from "../shared/Container";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
-import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 
 export function Hero() {
-  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
-  const [profilePic, setProfilePic] = useState<HeroImage | null>(null);
+  const heroBackgrounds = heroImages.home.backgrounds as HeroImage[];
+  const profilePictures = heroImages.home.profilePictures as HeroImage[];
 
-  useEffect(() => {
-    if (aboutData.heroBackgrounds && aboutData.heroBackgrounds.length > 0) {
-      const randomIndex = Math.floor(Math.random() * aboutData.heroBackgrounds.length);
-      setHeroBg(aboutData.heroBackgrounds[randomIndex]);
-    }
-    if (aboutData.profilePictures && aboutData.profilePictures.length > 0) {
-      const randomIndex = Math.floor(Math.random() * aboutData.profilePictures.length);
-      setProfilePic(aboutData.profilePictures[randomIndex]);
-    }
-  }, []);
+  const heroBg = heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)];
+  const profilePic = profilePictures[Math.floor(Math.random() * profilePictures.length)];
 
   return (
     <section className="relative overflow-hidden bg-background">
@@ -46,13 +35,13 @@ export function Hero() {
           {/* Text Content */}
           <div className="max-w-xl text-center md:text-left">
             <p className="text-lg font-medium uppercase tracking-widest text-accent">
-              {aboutData.title}
+              {homePageData.about.title}
             </p>
             <h1 className="glow-name mt-4 font-black">
-              {aboutData.name}
+              {homePageData.about.name}
             </h1>
             <p className="mt-6 text-lg text-foreground/80">
-              {aboutData.bio}
+              {homePageData.about.bio}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
@@ -75,7 +64,7 @@ export function Hero() {
               <div className="relative h-full w-full overflow-hidden rounded-2xl">
                 <Image
                   src={profilePic.imageUrl}
-                  alt={aboutData.name}
+                  alt={homePageData.about.name}
                   data-ai-hint={profilePic.imageHint}
                   fill
                   className="object-contain"

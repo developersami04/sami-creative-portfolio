@@ -1,23 +1,12 @@
-
-'use client';
-
 import { StudioHero } from "@/components/studio/StudioHero";
 import { Container } from "@/components/shared/Container";
 import { StudioGallery } from "@/components/studio/StudioGallery";
-import { heroBackgrounds } from "@/lib/data/heros/hero";
-import { useEffect, useState } from "react";
+import heroImages from "@/lib/placeholder-images.json";
 import type { HeroImage } from "@/lib/types";
 
-
 export default function StudioPage() {
-  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
-
-  useEffect(() => {
-    if (heroBackgrounds.studio && heroBackgrounds.studio.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.studio.length);
-      setHeroBg(heroBackgrounds.studio[randomIndex]);
-    }
-  }, []);
+  const heroBackgrounds = heroImages.studio as HeroImage[];
+  const heroBg = heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)];
 
   return (
     <>

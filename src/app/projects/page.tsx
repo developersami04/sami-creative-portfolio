@@ -1,23 +1,13 @@
-
-'use client';
-
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
-import { projectsPageData } from "@/lib/data/projects/work";
-import { heroBackgrounds } from "@/lib/data/heros/hero";
+import { projectsPageData } from "@/lib/placeholder-data";
+import heroImages from "@/lib/placeholder-images.json";
 import { ProjectList } from "@/components/projects/ProjectList";
-import { useEffect, useState } from "react";
 import type { HeroImage } from "@/lib/types";
 
 export default function ProjectsPage() {
-  const [heroBg, setHeroBg] = useState<HeroImage | null>(null);
-
-  useEffect(() => {
-    if (heroBackgrounds.projects && heroBackgrounds.projects.length > 0) {
-      const randomIndex = Math.floor(Math.random() * heroBackgrounds.projects.length);
-      setHeroBg(heroBackgrounds.projects[randomIndex]);
-    }
-  }, []);
+  const heroBackgrounds = heroImages.projects as HeroImage[];
+  const heroBg = heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)];
 
   return (
     <>

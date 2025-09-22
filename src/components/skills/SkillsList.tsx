@@ -1,6 +1,6 @@
 "use client";
 
-import { skillsData } from "@/lib/data/skills/skills";
+import { skillsData } from "@/lib/placeholder-data";
 import type { Skill } from "@/lib/types";
 import { SkillCard } from "./SkillCard";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";

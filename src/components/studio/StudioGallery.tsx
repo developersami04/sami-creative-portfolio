@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { studioData } from "@/lib/data/studio/studio";
+import { studioData } from "@/lib/placeholder-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";

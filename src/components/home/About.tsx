@@ -1,6 +1,6 @@
 "use client";
 
-import { aboutData } from "@/lib/data/home/about";
+import { homePageData } from "@/lib/placeholder-data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Send } from "lucide-react";
@@ -20,10 +20,10 @@ export function About() {
         )}
       >
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {aboutData.sectionTitle}
+          {homePageData.about.sectionTitle}
         </h2>
         <div className="mt-6 space-y-6 text-lg leading-8 text-foreground/80">
-            {aboutData.paragraphs.map((p, index) => (
+            {homePageData.about.paragraphs.map((p, index) => (
                 <p key={index}>{p}</p>
             ))}
         </div>

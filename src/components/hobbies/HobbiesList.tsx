@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { hobbiesData, hobbiesPageData } from "@/lib/data/hobbies/hobbies";
+import { hobbiesData, hobbiesPageData } from "@/lib/placeholder-data";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 

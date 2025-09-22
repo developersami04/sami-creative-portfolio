@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
-import { collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
+import { collaboratorsPageData } from "@/lib/placeholder-data";
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 

@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, Search } from "lucide-react";
-import { workData, workSectionData } from "@/lib/data/projects/work";
+import { projectsData, projectsSectionData } from "@/lib/placeholder-data";
 import {
   Card,
   CardContent,
@@ -25,10 +25,10 @@ export function ProjectList() {
 
   const filteredProjects = useMemo(() => {
     if (!searchTerm) {
-      return workData;
+      return projectsData;
     }
     const lowercasedTerm = searchTerm.toLowerCase();
-    return workData.filter((project) => {
+    return projectsData.filter((project) => {
       const { title, description, tags, year } = project;
       return (
         title.toLowerCase().includes(lowercasedTerm) ||
@@ -37,7 +37,7 @@ export function ProjectList() {
         tags.some((tag) => tag.toLowerCase().includes(lowercasedTerm))
       );
     });
-  }, [searchTerm]);
+  }, [searchTerm, projectsData]);
 
   return (
     <section id="work" className="py-16 md:py-24">
@@ -50,10 +50,10 @@ export function ProjectList() {
       >
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {workSectionData.title}
+            {projectsSectionData.title}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-            {workSectionData.description}
+            {projectsSectionData.description}
           </p>
         </div>
 

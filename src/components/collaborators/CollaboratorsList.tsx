@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { collaboratorsData, collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
+import { collaboratorsData, collaboratorsPageData } from "@/lib/placeholder-data";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";

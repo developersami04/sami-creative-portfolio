@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { workData } from "@/lib/data/projects/work";
+import { projectsData } from "@/lib/placeholder-data";
 import type { Skill } from "@/lib/types";
 import {
   Card,
@@ -22,7 +22,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
   const [projectCount, setProjectCount] = useState(0);
 
   useEffect(() => {
-    const count = workData.filter((project) =>
+    const count = projectsData.filter((project) =>
       project.tags.some((tag) => tag.toLowerCase() === skill.name.toLowerCase())
     ).length;
     setProjectCount(count);

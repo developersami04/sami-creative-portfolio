@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { workData, workSectionData } from "@/lib/data/projects/work";
+import { projectsData, projectsSectionData } from "@/lib/placeholder-data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, ArrowRight } from "lucide-react";
@@ -31,15 +31,15 @@ export function Work() {
       >
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {workSectionData.title}
+            {projectsSectionData.title}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-            {workSectionData.description}
+            {projectsSectionData.description}
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {workData.slice(0, 3).map((project) => (
+          {projectsData.slice(0, 3).map((project) => (
               <Card key={project.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                 {project.imageUrl && (
                   <div className="relative aspect-video overflow-hidden">
