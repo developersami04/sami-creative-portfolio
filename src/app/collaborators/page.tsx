@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
@@ -50,10 +51,10 @@ const CollaboratorsPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <div className="relative overflow-hidden py-16">
+      <div className="relative overflow-hidden py-16 md:py-24">
         <div className="animated-aurora" />
-        <Container className="relative z-10">
-          <div className="mx-auto max-w-2xl lg:mx-0 text-center">
+        <Container className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+          <div className="max-w-xl">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
               {collaboratorsPageData.title}
             </h1>
@@ -61,23 +62,23 @@ const CollaboratorsPage = () => {
               {collaboratorsPageData.description}
             </p>
           </div>
-        </Container>
-        
-        <div className="relative mt-16 flex h-[500px] w-full flex-row items-center justify-center overflow-hidden">
-          <Marquee pauseOnHover vertical className="[--duration:20s]">
-            {firstRow.map((collaborator, i) => (
-              <CollaboratorImage key={`p1-${i}`} {...collaborator} />
-            ))}
-          </Marquee>
-          <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-            {secondRow.map((collaborator, i) => (
-              <CollaboratorImage key={`p2-${i}`} {...collaborator} />
-            ))}
-          </Marquee>
+          
+          <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden">
+            <Marquee pauseOnHover vertical className="[--duration:20s]">
+              {firstRow.map((collaborator, i) => (
+                <CollaboratorImage key={`p1-${i}`} {...collaborator} />
+              ))}
+            </Marquee>
+            <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+              {secondRow.map((collaborator, i) => (
+                <CollaboratorImage key={`p2-${i}`} {...collaborator} />
+              ))}
+            </Marquee>
 
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
-        </div>
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+          </div>
+        </Container>
       </div>
 
       <Container>
