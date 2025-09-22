@@ -53,6 +53,11 @@ export async function generateImage(input: GenerateImageInput): Promise<Generate
   return generateImageFlow(input);
 }
 
+// A transparent 1x1 pixel PNG as a base for text-to-image generation
+const baseImage =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
+
 const generateImageFlow = ai.defineFlow(
   {
     name: 'generateImageFlow',
@@ -61,8 +66,14 @@ const generateImageFlow = ai.defineFlow(
   },
   async (input) => {
     const { media } = await ai.generate({
-      model: 'googleai/imagen-4.0-fast-generate-001',
-      prompt: input.prompt,
+      model: 'googleai/gemini-2.5-flash-image-preview',
+      prompt: [
+        { media: { url: baseImage } },
+        { text: input.prompt }
+      ],
+      config: {
+        responseModalities: ['TEXT', 'IMAGE'],
+      },
     });
 
     if (!media || !media.url) {
