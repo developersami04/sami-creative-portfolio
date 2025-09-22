@@ -10,7 +10,6 @@ import type { MusicTrack } from "@/lib/music-data";
 export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [hasInteracted, setHasInteracted] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<MusicTrack | null>(null);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export function MusicPlayer() {
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || !currentTrack) return;
     
     audio.volume = 0.3; // Set a default volume
     audio.loop = true; // Loop the music
@@ -32,32 +31,37 @@ export function MusicPlayer() {
     audio.addEventListener('pause', handlePause);
 
     // When the track changes, update the audio source
-    if (currentTrack) {
-        audio.src = currentTrack.url;
-        if(isPlaying) {
-            audio.play().catch(e => console.error("Audio playback failed", e));
-        }
+    audio.src = currentTrack.url;
+    
+    const userPreference = localStorage.getItem("musicPlayerMuted");
+    if (userPreference !== 'true') {
+      // Attempt to play, but catch error if browser blocks it
+      audio.play().catch(e => {
+        console.log("Autoplay was prevented by the browser. User interaction is required.");
+        setIsPlaying(false);
+      });
+    } else {
+        setIsPlaying(false);
     }
+
 
     return () => {
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
     };
-  }, [currentTrack, isPlaying]);
+  }, [currentTrack]);
 
   const togglePlayPause = async () => {
     const audio = audioRef.current;
     if (!audio) return;
-
-    if (!hasInteracted) {
-        setHasInteracted(true);
-    }
     
     try {
       if (isPlaying) {
         audio.pause();
+        localStorage.setItem("musicPlayerMuted", "true");
       } else {
         await audio.play();
+        localStorage.setItem("musicPlayerMuted", "false");
       }
       setIsPlaying(!isPlaying);
     } catch (error) {
