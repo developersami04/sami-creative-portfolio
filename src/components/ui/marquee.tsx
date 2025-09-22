@@ -43,6 +43,7 @@ const Marquee = ({
                 pauseOnHover && vertical,
               "flex-row": !vertical,
               "flex-col": vertical,
+              "[animation-direction:reverse]": reverse,
             })}
           >
             {children}
