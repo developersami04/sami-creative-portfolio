@@ -13,16 +13,15 @@ export function MusicPlayer() {
   const [currentTrack, setCurrentTrack] = useState<MusicTrack | null>(null);
 
   useEffect(() => {
-    // Select a random track on the client side
+    // On mount, select a random track
     setCurrentTrack(musicTracks[Math.floor(Math.random() * musicTracks.length)]);
-  }, []);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || !currentTrack) return;
     
-    audio.volume = 0.3; // Set a default volume
-    audio.loop = true; // Loop the music
+    // Set up the audio element once it's available
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.volume = 0.3;
+    audio.loop = true;
 
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
@@ -30,25 +29,29 @@ export function MusicPlayer() {
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
 
-    // When the track changes, update the audio source
-    audio.src = currentTrack.url;
-    
-    const userPreference = localStorage.getItem("musicPlayerMuted");
-    if (userPreference !== 'true') {
-      // Attempt to play, but catch error if browser blocks it
-      audio.play().catch(e => {
-        console.log("Autoplay was prevented by the browser. User interaction is required.");
-        setIsPlaying(false);
-      });
-    } else {
-        setIsPlaying(false);
-    }
-
-
     return () => {
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
     };
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio && currentTrack) {
+      audio.src = currentTrack.url;
+      
+      const userPreference = localStorage.getItem("musicPlayerMuted");
+      if (userPreference !== 'true') {
+        // Attempt to play, but catch error if browser blocks it.
+        // This usually requires user interaction on the page first.
+        audio.play().catch(e => {
+          console.log("Autoplay was prevented by the browser. User interaction is required.");
+          setIsPlaying(false);
+        });
+      } else {
+        setIsPlaying(false);
+      }
+    }
   }, [currentTrack]);
 
   const togglePlayPause = async () => {
@@ -63,7 +66,7 @@ export function MusicPlayer() {
         await audio.play();
         localStorage.setItem("musicPlayerMuted", "false");
       }
-      setIsPlaying(!isPlaying);
+      // The state will be updated by the 'play'/'pause' event listeners
     } catch (error) {
       console.error("Audio playback failed:", error);
     }
