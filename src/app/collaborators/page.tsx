@@ -20,9 +20,11 @@ const CollaboratorImage = ({
   className?: string;
 }) => {
   return (
-    <div
+    <figure
       className={cn(
-        "relative aspect-square w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-64 sm:rounded-2xl dark:bg-zinc-800",
+        "relative w-44 h-44 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
         className
       )}
     >
@@ -31,9 +33,9 @@ const CollaboratorImage = ({
         alt=""
         data-ai-hint={imageHint}
         fill
-        className="object-cover"
+        className="object-cover rounded-md"
       />
-    </div>
+    </figure>
   );
 };
 
@@ -60,19 +62,41 @@ const CollaboratorsPage = () => {
             </p>
           </div>
         </Container>
-        <div className="relative mt-16 flex flex-col gap-4">
-            <Marquee pauseOnHover>
-                {firstRow.map((collaborator, i) => (
-                    <CollaboratorImage key={`p1-${i}`} {...collaborator} />
-                ))}
+        
+        <div className="relative mt-16 flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
+          <div
+            className="flex flex-row items-center gap-4"
+            style={{
+              transform:
+                "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
+            }}
+          >
+            <Marquee pauseOnHover vertical className="[--duration:20s]">
+              {firstRow.map((collaborator, i) => (
+                <CollaboratorImage key={`p1-${i}`} {...collaborator} />
+              ))}
             </Marquee>
-            <Marquee pauseOnHover reverse>
-                {secondRow.map((collaborator, i) => (
-                    <CollaboratorImage key={`p2-${i}`} {...collaborator} />
-                ))}
+            <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
+              {secondRow.map((collaborator, i) => (
+                <CollaboratorImage key={`p2-${i}`} {...collaborator} />
+              ))}
             </Marquee>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
+             <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
+              {firstRow.map((collaborator, i) => (
+                <CollaboratorImage key={`p3-${i}`} {...collaborator} />
+              ))}
+            </Marquee>
+            <Marquee pauseOnHover className="[--duration:20s]" vertical>
+              {secondRow.map((collaborator, i) => (
+                <CollaboratorImage key={`p4-${i}`} {...collaborator} />
+              ))}
+            </Marquee>
+          </div>
+
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
         </div>
       </div>
 
