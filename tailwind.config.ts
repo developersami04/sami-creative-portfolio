@@ -104,6 +104,14 @@ export default {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(-360deg)' },
         },
+        "marquee-horizontal": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -111,6 +119,8 @@ export default {
         aurora: 'aurora 20s linear infinite',
         'spin-slow': 'spin-slow 20s linear infinite',
         'spin-slower': 'spin-slower 30s linear infinite',
+        "marquee-horizontal": "marquee-horizontal var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
     },
   },

@@ -1,20 +1,28 @@
-
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { CollaboratorsList } from "@/components/collaborators/CollaboratorsList";
 import { collaboratorsPageData } from "@/lib/data/collaborators/collaborators";
 import { cn } from "@/lib/utils";
+import Marquee from "@/components/ui/marquee";
 
 export const metadata = {
   title: "Collaborators | PortfolioFlow",
   description: "People I've had the pleasure to work with.",
 };
 
-const CollaboratorImage = ({ imageUrl, imageHint, className }: { imageUrl: string; imageHint: string; className?: string; }) => {
+const CollaboratorImage = ({
+  imageUrl,
+  imageHint,
+  className,
+}: {
+  imageUrl: string;
+  imageHint: string;
+  className?: string;
+}) => {
   return (
     <div
       className={cn(
-        "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800",
+        "relative aspect-square w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-64 sm:rounded-2xl dark:bg-zinc-800",
         className
       )}
     >
@@ -23,19 +31,24 @@ const CollaboratorImage = ({ imageUrl, imageHint, className }: { imageUrl: strin
         alt=""
         data-ai-hint={imageHint}
         fill
-        sizes="(min-width: 640px) 18rem, 11rem"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="object-cover"
       />
     </div>
   );
 };
 
-
 const CollaboratorsPage = () => {
+  const firstRow = collaboratorsPageData.heroImages.slice(
+    0,
+    collaboratorsPageData.heroImages.length / 2
+  );
+  const secondRow = collaboratorsPageData.heroImages.slice(
+    collaboratorsPageData.heroImages.length / 2
+  );
 
   return (
     <div className="bg-background text-foreground">
-      <div className="relative overflow-hidden pt-2">
+      <div className="relative overflow-hidden py-16">
         <div className="animated-aurora" />
         <Container className="relative z-10">
           <div className="mx-auto max-w-2xl lg:mx-0 text-center">
@@ -47,12 +60,19 @@ const CollaboratorsPage = () => {
             </p>
           </div>
         </Container>
-         <div className="mt-16 -mx-4 flex justify-center gap-x-6 sm:gap-x-8 px-4 sm:px-6 lg:px-8">
-            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[0].imageUrl} imageHint={collaboratorsPageData.heroImages[0].imageHint} className="rotate-2" />
-            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[1].imageUrl} imageHint={collaboratorsPageData.heroImages[1].imageHint} className="relative top-11 -rotate-2" />
-            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[2].imageUrl} imageHint={collaboratorsPageData.heroImages[2].imageHint} className="relative top-5 scale-110 z-10" />
-            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[3].imageUrl} imageHint={collaboratorsPageData.heroImages[3].imageHint} className="relative top-11 rotate-2" />
-            <CollaboratorImage imageUrl={collaboratorsPageData.heroImages[4].imageUrl} imageHint={collaboratorsPageData.heroImages[4].imageHint} className="-rotate-2" />
+        <div className="relative mt-16 flex flex-col gap-4">
+            <Marquee pauseOnHover>
+                {firstRow.map((collaborator, i) => (
+                    <CollaboratorImage key={`p1-${i}`} {...collaborator} />
+                ))}
+            </Marquee>
+            <Marquee pauseOnHover reverse>
+                {secondRow.map((collaborator, i) => (
+                    <CollaboratorImage key={`p2-${i}`} {...collaborator} />
+                ))}
+            </Marquee>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
         </div>
       </div>
 
