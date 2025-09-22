@@ -4,7 +4,6 @@ import { Container } from "@/components/shared/Container";
 import { StudioGallery } from "@/components/studio/StudioGallery";
 import heroImages from "@/lib/placeholder-images.json";
 import type { HeroImage } from "@/lib/types";
-import { ImageGenerator } from "@/components/studio/ImageGenerator";
 
 export default function StudioPage() {
   const heroBackgrounds = heroImages.studio as HeroImage[];
@@ -14,7 +13,6 @@ export default function StudioPage() {
     <>
       <StudioHero heroBg={heroBg} />
       <Container className="py-16 md:py-24">
-        <ImageGenerator />
         <StudioGallery />
       </Container>
     </>
