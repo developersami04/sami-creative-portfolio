@@ -78,8 +78,8 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/portfolioflow.git
-    cd portfolioflow
+    https://github.com/developersami04/sami-creative-portfolio.git
+    cd sami-creative-portfolio
     ```
 
 2.  **Install dependencies:**
