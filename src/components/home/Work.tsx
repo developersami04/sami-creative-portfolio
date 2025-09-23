@@ -52,6 +52,11 @@ export function Work() {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                     <div className="absolute bottom-4 right-4">
+                        <span className="inline-block rounded-full bg-accent/80 px-3 py-1 text-xs font-semibold text-accent-foreground backdrop-blur-sm">
+                            {project.category}
+                        </span>
+                     </div>
                   </div>
                 )}
                 <CardHeader className="flex-grow">

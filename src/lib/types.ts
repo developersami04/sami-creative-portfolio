@@ -6,6 +6,7 @@ export type Project = {
   title: string;
   description: string;
   tags: string[];
+  category: "Full Stack" | "Web" | "AI" | "API" | "Frontend";
   imageUrl: string;
   imageHint: string;
   link: string;

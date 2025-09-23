@@ -29,15 +29,16 @@ export function ProjectList() {
     }
     const lowercasedTerm = searchTerm.toLowerCase();
     return projectsData.filter((project) => {
-      const { title, description, tags, year } = project;
+      const { title, description, tags, year, category } = project;
       return (
         title.toLowerCase().includes(lowercasedTerm) ||
         description.toLowerCase().includes(lowercasedTerm) ||
         year.toLowerCase().includes(lowercasedTerm) ||
+        category.toLowerCase().includes(lowercasedTerm) ||
         tags.some((tag) => tag.toLowerCase().includes(lowercasedTerm))
       );
     });
-  }, [searchTerm, projectsData]);
+  }, [searchTerm]);
 
   return (
     <section id="work" className="py-16 md:py-24">
@@ -90,6 +91,11 @@ export function ProjectList() {
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 right-4">
+                      <span className="inline-block rounded-full bg-accent/80 px-3 py-1 text-xs font-semibold text-accent-foreground backdrop-blur-sm">
+                        {project.category}
+                      </span>
+                    </div>
                   </div>
                 )}
                 <CardHeader className="flex-grow">
