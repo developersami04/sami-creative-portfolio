@@ -7,18 +7,18 @@ export type MusicTrack = {
 
 export const musicTracks: MusicTrack[] = [
   {
-    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758573236/Demon_Slayer__Infinity_Castle_OST___Zenitsu_7th_Form__Flaming_Thunder_God_Zenitsu_vs_Kaigaku_hvob5g.m4a",
+    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758653029/flaming-thunder-god_ojd6df.mp3",
     title: "Zenitsu vs. Kaigaku",
     artist: "Original Soundtrack",
   },
   {
-    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758573237/Demon_Slayer__Infinity_Castle_-_Tomioka_s_Demon_Slayer_Mark_Giyu_vs._Akaza___EPIC_VERSION_izyqc7.m4a",
-    title: "Giyu vs. Akaza",
+    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758653023/the-entrance-to-the-infinity-castle_muyxag.mp3",
+    title: "The Entrance to the Infinity Castle",
     artist: "Original Soundtrack",
   },
   {
-    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758573237/Muzan_vs_Hashira___Entrance_to_Infinity_Castle___Demon_Slayer_S4_E8___%E9%AC%BC%E6%BB%85%E3%81%AE%E5%88%83_OST_qo1vhs.m4a",
-    title: "Muzan vs. Hashira",
+    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758573238/Demon_Slayer__Infinity_Castle___Akaza_vs_Giyu_Tanjiro_EPIC_VERSION_cmuta7.m4a",
+    title: "Akaza vs. Giyu & Tanjiro",
     artist: "Original Soundtrack",
   },
   {
@@ -27,8 +27,8 @@ export const musicTracks: MusicTrack[] = [
     artist: "Original Soundtrack",
   },
   {
-    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758573238/Demon_Slayer__Infinity_Castle___Akaza_vs_Giyu_Tanjiro_EPIC_VERSION_cmuta7.m4a",
-    title: "Akaza vs. Giyu & Tanjiro",
+    url: "https://res.cloudinary.com/dcfurdz3u/video/upload/v1758653027/giyu_s-demon-slayer-mark_akwndt.mp3",
+    title: "Giyu's Demon Slayer Mark",
     artist: "Original Soundtrack",
   },
 ];
