@@ -35,19 +35,19 @@ The project follows a standard Next.js App Router structure. Key directories are
 graph TD
     A(PortfolioFlow) --> B(src);
     B --> C(app);
-    C --> D(layout.tsx);
-    C --> E(page.tsx);
-    C --> F([page]/page.tsx);
+    C --> D["layout.tsx"];
+    C --> E["page.tsx"];
+    C --> F["[page]/page.tsx"];
     B --> G(components);
     G --> H(shared);
     G --> I(ui);
     G --> J([feature]);
     B --> K(lib);
-    K --> L(placeholder-data.ts);
-    K --> M(utils.ts);
+    K --> L["placeholder-data.ts"];
+    K --> M["utils.ts"];
     B --> N(hooks);
     A --> O(public);
-    A --> P(tailwind.config.ts);
+    A --> P["tailwind.config.ts"];
 
     subgraph Pages & Routes
         D & E & F
