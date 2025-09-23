@@ -73,7 +73,7 @@ export function MusicPlayer() {
   return (
     <>
       <audio ref={audioRef} preload="auto"></audio>
-      <div className="fixed bottom-28 left-4 z-50 md:bottom-4 md:left-auto md:right-28">
+      <div className="md:relative fixed bottom-28 left-4 z-50">
         <Button
           variant="outline"
           size="icon"

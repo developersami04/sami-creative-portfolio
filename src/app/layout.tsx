@@ -42,8 +42,10 @@ export default function RootLayout({
               </PageTransition>
             </main>
             <Footer />
-            <MusicPlayer />
-            <BottomNav />
+            <div className="md:fixed md:bottom-4 md:left-1/2 md:z-50 md:-translate-x-1/2 md:flex md:items-center md:gap-4">
+              <MusicPlayer />
+              <BottomNav />
+            </div>
           </div>
           <Toaster />
         </ThemeProvider>
