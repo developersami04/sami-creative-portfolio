@@ -42,7 +42,7 @@ export function MusicPlayer() {
     // 4. Add all event listeners
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
-    audio.addEventListener('canplay', attemptPlayOnLoad); // <-- This is the key fix
+    audio.addEventListener('canplay', attemptPlayOnLoad, { once: true }); // Use { once: true } to avoid re-triggering
 
     // 5. Cleanup function
     return () => {
@@ -50,7 +50,7 @@ export function MusicPlayer() {
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('canplay', attemptPlayOnLoad);
     };
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   const togglePlayPause = () => {
     const audio = audioRef.current;
@@ -73,8 +73,22 @@ export function MusicPlayer() {
   return (
     <>
       <audio ref={audioRef} preload="auto"></audio>
-      <div className="md:relative fixed bottom-28 left-4 z-50">
+      {/* Container for mobile */}
+      <div className="md:hidden fixed bottom-28 left-4 z-50">
         <Button
+          variant="outline"
+          size="icon"
+          onClick={togglePlayPause}
+          className="rounded-full h-12 w-12 border-2"
+          disabled={!currentTrack}
+        >
+          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+          <span className="sr-only">Toggle Music</span>
+        </Button>
+      </div>
+      {/* Button for desktop */}
+      <div className="hidden md:block">
+         <Button
           variant="outline"
           size="icon"
           onClick={togglePlayPause}

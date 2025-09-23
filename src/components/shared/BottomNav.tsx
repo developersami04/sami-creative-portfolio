@@ -34,7 +34,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
+    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:relative md:left-auto md:transform-none">
       <TooltipProvider>
         <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
           {navLinks.map((link) => (
