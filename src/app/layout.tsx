@@ -42,9 +42,9 @@ export default function RootLayout({
               </PageTransition>
             </main>
             <Footer />
-            <div className="md:fixed md:bottom-4 md:left-1/2 md:z-50 md:-translate-x-1/2 md:flex md:flex-col md:items-center md:gap-4">
-              <MusicPlayer />
+            <div className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-4">
               <BottomNav />
+              <MusicPlayer />
             </div>
           </div>
           <Toaster />

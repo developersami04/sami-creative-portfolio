@@ -73,32 +73,16 @@ export function MusicPlayer() {
   return (
     <>
       <audio ref={audioRef} preload="auto"></audio>
-      {/* Container for mobile */}
-      <div className="md:hidden fixed bottom-28 left-4 z-50">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={togglePlayPause}
-          className="rounded-full h-12 w-12 border-2"
-          disabled={!currentTrack}
-        >
-          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-          <span className="sr-only">Toggle Music</span>
-        </Button>
-      </div>
-      {/* Button for desktop */}
-      <div className="hidden md:block">
-         <Button
-          variant="outline"
-          size="icon"
-          onClick={togglePlayPause}
-          className="rounded-full h-12 w-12 border-2"
-          disabled={!currentTrack}
-        >
-          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-          <span className="sr-only">Toggle Music</span>
-        </Button>
-      </div>
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={togglePlayPause}
+        className="rounded-full h-12 w-12 border-2 bg-background/95 shadow-lg backdrop-blur-sm"
+        disabled={!currentTrack}
+      >
+        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+        <span className="sr-only">Toggle Music</span>
+      </Button>
     </>
   );
 }

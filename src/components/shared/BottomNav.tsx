@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
+const desktopNavLinks = [
     { href: "/", label: "Home", icon: Home },
     { href: "/projects", label: "Projects", icon: Briefcase },
     { href: "/skills", label: "Skills", icon: Lightbulb },
@@ -30,43 +30,89 @@ const navLinks = [
     { href: "/studio", label: "Studio", icon: Sparkles },
 ];
 
+const mobileNavLinks = [
+    { href: "/", label: "Home", icon: Home },
+    { href: "/projects", label: "Projects", icon: Briefcase },
+    { href: "/skills", label: "Skills", icon: Lightbulb },
+    { href: "/journey", label: "My Journey", icon: Milestone },
+];
+
 export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:relative md:left-auto md:transform-none">
-      <TooltipProvider>
-        <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
-          {navLinks.map((link) => (
-            <Tooltip key={link.href}>
-              <TooltipTrigger asChild>
-                <Button
-                  asChild
-                  variant="ghost"
-                  size="icon"
-                  className={cn(
-                    "h-12 w-12 rounded-full",
-                    pathname === link.href ? "bg-accent text-accent-foreground" : ""
-                  )}
-                >
-                  <Link href={link.href}>
-                    <link.icon
-                      className={cn(
-                        "h-5 w-5 transition-transform duration-300",
-                        pathname === link.href ? "scale-125" : ""
-                      )}
-                    />
-                    <span className="sr-only">{link.label}</span>
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>{link.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          ))}
-        </div>
-      </TooltipProvider>
-    </div>
+    <>
+      {/* Mobile Nav */}
+      <div className="md:hidden">
+        <TooltipProvider>
+          <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
+            {mobileNavLinks.map((link) => (
+              <Tooltip key={link.href}>
+                <TooltipTrigger asChild>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    size="icon"
+                    className={cn(
+                      "h-12 w-12 rounded-full",
+                      pathname === link.href ? "bg-accent text-accent-foreground" : ""
+                    )}
+                  >
+                    <Link href={link.href}>
+                      <link.icon
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300",
+                          pathname === link.href ? "scale-125" : ""
+                        )}
+                      />
+                      <span className="sr-only">{link.label}</span>
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>{link.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
+      </div>
+
+      {/* Desktop Nav */}
+      <div className="hidden md:block">
+        <TooltipProvider>
+          <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
+            {desktopNavLinks.map((link) => (
+              <Tooltip key={link.href}>
+                <TooltipTrigger asChild>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    size="icon"
+                    className={cn(
+                      "h-12 w-12 rounded-full",
+                      pathname === link.href ? "bg-accent text-accent-foreground" : ""
+                    )}
+                  >
+                    <Link href={link.href}>
+                      <link.icon
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300",
+                          pathname === link.href ? "scale-125" : ""
+                        )}
+                      />
+                      <span className="sr-only">{link.label}</span>
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>{link.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
+      </div>
+    </>
   );
 }
