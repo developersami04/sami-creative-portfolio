@@ -73,16 +73,18 @@ export function MusicPlayer() {
   return (
     <>
       <audio ref={audioRef} preload="auto"></audio>
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={togglePlayPause}
-        className="rounded-full h-12 w-12 border-2 bg-background/95 shadow-lg backdrop-blur-sm"
-        disabled={!currentTrack}
-      >
-        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-        <span className="sr-only">Toggle Music</span>
-      </Button>
+      <div className="flex items-center gap-2 rounded-full border bg-background/95 p-2 shadow-lg backdrop-blur-sm">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={togglePlayPause}
+          className="rounded-full h-12 w-12"
+          disabled={!currentTrack}
+        >
+          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+          <span className="sr-only">Toggle Music</span>
+        </Button>
+      </div>
     </>
   );
 }
